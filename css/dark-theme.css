@@ -1,0 +1,150 @@
+/* dark-theme.css - Theme sombre pour le portfolio */
+
+.dark-theme {
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #0f172a;
+  --color-bg-card: #1e293b;
+  --color-bg-card-hover: #334155;
+
+  --color-text-primary: #e2e8f0;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+
+  --color-border: rgba(148, 163, 184, 0.2);
+  --color-shadow: rgba(0, 0, 0, 0.25);
+
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+}
+
+/* Overrides pour le theme sombre */
+.dark-theme .logo {
+  color: var(--color-primary);
+}
+
+.dark-theme header {
+  background-color: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.5);
+}
+
+.dark-theme .drawer-nav {
+  background-color: var(--color-bg-secondary);
+}
+
+.dark-theme .nav-link {
+  color: var(--color-text-primary);
+}
+
+.dark-theme .nav-link:hover {
+  color: var(--color-primary);
+}
+
+.dark-theme .project-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+}
+
+.dark-theme .project-card:hover {
+  background-color: var(--color-bg-card-hover);
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.dark-theme .skill-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .skill-progress {
+  background: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-accent)
+  );
+}
+
+.dark-theme .testimonial-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+}
+
+.dark-theme input,
+.dark-theme textarea {
+  background-color: rgba(30, 41, 59, 0.8);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.dark-theme input:focus,
+.dark-theme textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.dark-theme footer {
+  background-color: var(--color-darker);
+  border-top: 1px solid var(--color-border);
+}
+
+/* Code blocks */
+.dark-theme .code-block {
+  background-color: #1a1a2e;
+  border: 1px solid #252542;
+}
+
+.dark-theme .code-header {
+  background-color: #252542;
+}
+
+.dark-theme .code-number {
+  color: #6b7280;
+}
+
+.dark-theme .code-keyword {
+  color: #93c5fd;
+}
+
+.dark-theme .code-function {
+  color: #60a5fa;
+}
+
+.dark-theme .code-string {
+  color: #a5b4fc;
+}
+
+.dark-theme .code-comment {
+  color: #64748b;
+}
+
+/* Timeline */
+.dark-theme .timeline-item::before {
+  background-color: var(--color-primary);
+}
+
+.dark-theme .timeline-item::after {
+  background-color: rgba(148, 163, 184, 0.2);
+}
+
+.dark-theme .timeline-content {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+}
+
+/* Scrollbar */
+.dark-theme::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark-theme::-webkit-scrollbar-track {
+  background: var(--color-darker);
+}
+
+.dark-theme::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 5px;
+}
+
+.dark-theme::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}

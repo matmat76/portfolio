@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet Robot Télécommandé - Matthieu Tremblay</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#temoignages" class="nav-link"
+            >Témoignages</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="project-hero">
+        <div class="container">
+          <div class="project-hero-content">
+            <a href="../../index.html#projets" class="back-link">
+              <i class="ri-arrow-left-line"></i> Retour aux projets
+            </a>
+            <h1 class="project-title">Robot Télécommandé</h1>
+            <div class="project-info">
+              <span class="project-type">Projet Personnel</span>
+              <span class="project-date">2021-2022</span>
+              <div class="project-tags">
+                <span class="project-tag">C++</span>
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">ESP32</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Project Overview -->
+      <section class="project-overview">
+        <div class="container">
+          <div class="project-description">
+            <h2>Description du Projet</h2>
+            <p>
+              Ce projet de robot télécommandé a été développé comme initiative
+              personnelle à la fin de ma deuxième année de prépa et poursuivi
+              durant ma première année d'ingénieur. L'objectif était de créer un
+              robot contrôlable via WiFi, doté d'une caméra pour la
+              retransmission vidéo en temps réel et capable de se déplacer avec
+              précision grâce à des encodeurs.
+            </p>
+
+            <h3>Fonctionnalités Principales</h3>
+            <ul>
+              <li>Contrôle du robot via une interface web responsive</li>
+              <li>Streaming vidéo en temps réel avec une caméra ESP32-CAM</li>
+              <li>
+                Suivi de position précis avec des encodeurs sur les moteurs
+              </li>
+              <li>
+                Communication WiFi entre le robot et le dispositif de contrôle
+              </li>
+              <li>Batterie LiPo 7.4V pour une autonomie optimale</li>
+            </ul>
+          </div>
+
+          <div class="project-gallery">
+            <h2>Galerie</h2>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <div class="gallery-placeholder">
+                  <i class="ri-robot-line"></i>
+                  <span>Vue d'ensemble du robot</span>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-placeholder">
+                  <i class="ri-cpu-line"></i>
+                  <span>Circuit électronique</span>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-placeholder">
+                  <i class="ri-camera-line"></i>
+                  <span>Module ESP32-CAM</span>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <div class="gallery-placeholder">
+                  <i class="ri-smartphone-line"></i>
+                  <span>Interface de contrôle</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Architecture du Code -->
+      <section class="project-code">
+        <div class="container">
+          <h2>Architecture du Code</h2>
+
+          <div class="architecture-overview">
+            <h3>Structure des Fichiers</h3>
+            <div class="file-structure">
+              <pre>
+Arduino/
+├── RobotController/
+│   ├── RobotController.ino    # Programme principal Arduino
+│   ├── MotorControl.h         # Interface de contrôle des moteurs
+│   ├── MotorControl.cpp       # Implémentation du contrôle moteur
+│   ├── EncoderReader.h        # Interface de lecture des encodeurs
+│   ├── EncoderReader.cpp      # Implémentation de la lecture des encodeurs
+│   └── Config.h               # Configuration et constantes
+├── ESP32_Camera/
+│   ├── ESP32_Camera.ino       # Programme principal ESP32-CAM
+│   ├── WebServer.h            # Interface du serveur web
+│   ├── WebServer.cpp          # Implémentation du serveur web
+│   └── CameraConfig.h         # Configuration de la caméra
+                        </pre
+              >
+            </div>
+          </div>
+
+          <div class="code-snippets">
+            <h3>Extraits de Code</h3>
+
+            <div class="code-tab">
+              <div class="code-header">
+                <div class="code-title">
+                  <i class="ri-file-code-line"></i>
+                  <span>MotorControl.h</span>
+                </div>
+              </div>
+              <div class="code-content">
+                <pre class="code-block">
+/**
+ * MotorControl.h - Gestion des moteurs du robot
+ * Matthieu Tremblay - Projet personnel robot
+ */
+
+#ifndef MOTOR_CONTROL_H
+#define MOTOR_CONTROL_H
+
+#include "Config.h"
+
+class MotorControl {
+  public:
+    // Constructeur
+    MotorControl(int ena, int in1, int in2, int enb, int in3, int in4);
+    
+    // Initialisation des moteurs
+    void begin();
+    
+    // Contrôle du mouvement
+    void moveForward(int speed);
+    void moveBackward(int speed);
+    void turnLeft(int speed);
+    void turnRight(int speed);
+    void stop();
+    
+    // Contrôle différentiel
+    void setMotorSpeeds(int leftSpeed, int rightSpeed);
+    
+  private:
+    // Pins des moteurs
+    int _enaPin, _in1Pin, _in2Pin;  // Moteur gauche
+    int _enbPin, _in3Pin, _in4Pin;  // Moteur droit
+    
+    // Contrôle d'un moteur individuel
+    void setLeftMotor(int speed);
+    void setRightMotor(int speed);
+};
+
+#endif // MOTOR_CONTROL_H
+                            </pre
+                >
+              </div>
+            </div>
+
+            <div class="code-tab">
+              <div class="code-header">
+                <div class="code-title">
+                  <i class="ri-file-code-line"></i>
+                  <span>MotorControl.cpp</span>
+                </div>
+              </div>
+              <div class="code-content">
+                <pre class="code-block">
+/**
+ * MotorControl.cpp - Implémentation du contrôle des moteurs
+ * Matthieu Tremblay - Projet personnel robot
+ */
+
+#include "MotorControl.h"
+#include "Arduino.h"
+
+// Constructeur
+MotorControl::MotorControl(int ena, int in1, int in2, int enb, int in3, int in4) {
+  _enaPin = ena;
+  _in1Pin = in1;
+  _in2Pin = in2;
+  _enbPin = enb;
+  _in3Pin = in3;
+  _in4Pin = in4;
+}
+
+// Initialisation
+void MotorControl::begin() {
+  // Configuration des pins
+  pinMode(_enaPin, OUTPUT);
+  pinMode(_in1Pin, OUTPUT);
+  pinMode(_in2Pin, OUTPUT);
+  pinMode(_enbPin, OUTPUT);
+  pinMode(_in3Pin, OUTPUT);
+  pinMode(_in4Pin, OUTPUT);
+  
+  // Arrêt initial des moteurs
+  stop();
+}
+
+// Méthodes de mouvement
+void MotorControl::moveForward(int speed) {
+  setMotorSpeeds(speed, speed);
+}
+
+void MotorControl::moveBackward(int speed) {
+  setMotorSpeeds(-speed, -speed);
+}
+
+void MotorControl::turnLeft(int speed) {
+  setMotorSpeeds(-speed, speed);
+}
+
+void MotorControl::turnRight(int speed) {
+  setMotorSpeeds(speed, -speed);
+}
+
+void MotorControl::stop() {
+  setMotorSpeeds(0, 0);
+}
+
+// Contrôle différentiel
+void MotorControl::setMotorSpeeds(int leftSpeed, int rightSpeed) {
+  setLeftMotor(leftSpeed);
+  setRightMotor(rightSpeed);
+}
+
+// Contrôle moteur gauche
+void MotorControl::setLeftMotor(int speed) {
+  if (speed > 0) {
+    digitalWrite(_in1Pin, HIGH);
+    digitalWrite(_in2Pin, LOW);
+  } else if (speed < 0) {
+    digitalWrite(_in1Pin, LOW);
+    digitalWrite(_in2Pin, HIGH);
+  } else {
+    digitalWrite(_in1Pin, LOW);
+    digitalWrite(_in2Pin, LOW);
+  }
+  
+  analogWrite(_enaPin, abs(speed));
+}
+
+// Contrôle moteur droit
+void MotorControl::setRightMotor(int speed) {
+  if (speed > 0) {
+    digitalWrite(_in3Pin, HIGH);
+    digitalWrite(_in4Pin, LOW);
+  } else if (speed < 0) {
+    digitalWrite(_in3Pin, LOW);
+    digitalWrite(_in4Pin, HIGH);
+  } else {
+    digitalWrite(_in3Pin, LOW);
+    digitalWrite(_in4Pin, LOW);
+  }
+  
+  analogWrite(_enbPin, abs(speed));
+}
+                            </pre
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="download-section">
+            <h3>Téléchargement du Code Source</h3>
+            <div class="download-buttons">
+              <a href="#" class="download-btn">
+                <i class="ri-download-line"></i>
+                Arduino Controller
+              </a>
+              <a href="#" class="download-btn">
+                <i class="ri-download-line"></i>
+                ESP32 Camera
+              </a>
+              <a href="#" class="download-btn">
+                <i class="ri-download-line"></i>
+                Interface Web
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#temoignages">Témoignages</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/utils/scroll.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // Code tabs functionality
+        const codeTabs = document.querySelectorAll(".code-tab");
+
+        codeTabs.forEach((tab) => {
+          const header = tab.querySelector(".code-header");
+          const content = tab.querySelector(".code-content");
+
+          header.addEventListener("click", () => {
+            content.classList.toggle("active");
+            header.classList.toggle("active");
+          });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById("main-header");
+
+        function updateHeader() {
+          if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+        }
+
+        // Initial check
+        updateHeader();
+
+        // Listener for scroll
+        window.addEventListener("scroll", updateHeader);
+      });
+    </script>
+  </body>
+</html>

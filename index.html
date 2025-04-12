@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Matthieu Tremblay</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <!-- GSAP pour les animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/dark-theme.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/components/header.css" />
+    <link rel="stylesheet" href="css/components/hero.css" />
+    <link rel="stylesheet" href="css/components/projects.css" />
+    <link rel="stylesheet" href="css/components/timeline.css" />
+    <link rel="stylesheet" href="css/components/skills.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Cursor animé -->
+    <div class="custom-cursor"></div>
+
+    <!-- Mobile Nav Drawer -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <div class="drawer-nav" id="drawer-nav">
+      <div class="drawer-header">
+        <div class="logo">MT</div>
+        <button id="drawer-close-btn" class="drawer-close-btn">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+      <nav class="drawer-menu">
+        <a href="#accueil" class="nav-link drawer-link">Accueil</a>
+        <a href="#parcours" class="nav-link drawer-link">Parcours</a>
+        <a href="#projets" class="nav-link drawer-link">Projets</a>
+        <a href="#competences" class="nav-link drawer-link">Compétences</a>
+        <a href="#temoignages" class="nav-link drawer-link">Témoignages</a>
+        <a href="#contact" class="nav-link drawer-link">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="#" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="#accueil" class="nav-link">Accueil</a>
+          <a href="#parcours" class="nav-link">Parcours</a>
+          <a href="#projets" class="nav-link">Projets</a>
+          <a href="#competences" class="nav-link">Compétences</a>
+          <a href="#temoignages" class="nav-link">Témoignages</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        <button id="drawer-open-btn" class="drawer-open-btn">
+          <i class="ri-menu-line"></i>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="accueil" class="hero-section">
+        <canvas id="hero-canvas"></canvas>
+        <!-- Particles -->
+        <div class="particles-container">
+          <!-- Les particules seront générées par JS -->
+        </div>
+
+        <div class="container">
+          <div class="hero-content">
+            <div class="badge">Étudiant Ingénieur Systèmes Embarqués</div>
+            <h1 class="hero-title">
+              <span class="gradient-text">Matthieu Tremblay</span>
+              <span>Développeur C/C++</span>
+            </h1>
+            <p class="hero-description">
+              Étudiant ingénieur spécialisé en systèmes embarqués, curieux et
+              passionné par les technologies. Je cherche à me dépasser et à
+              apprendre toujours de nouvelles choses.
+            </p>
+            <div class="hero-cta">
+              <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+              <a href="#contact" class="btn btn-outline">Me contacter</a>
+            </div>
+
+            <!-- Tech stack -->
+            <!-- Tech stack icons -->
+            <div class="mt-16">
+              <p class="text-sm font-semibold text-light/80 mb-4">
+                Technologies principales
+              </p>
+              <div class="flex flex-wrap gap-6 items-center">
+                <a
+                  href="https://devdocs.io/c/"
+                  class="tech-icon tooltip-container"
+                  target="_blank"
+                >
+                  <span class="text-2xl text-blue-400">C</span>
+                  <span class="tooltip"
+                    >Langage C - Programmation systèmes embarqués</span
+                  >
+                </a>
+                <a
+                  href="https://devdocs.io/cpp/"
+                  class="tech-icon tooltip-container"
+                  target="_blank"
+                >
+                  <span class="tech-icon-cpp">C++</span>
+                  <span class="tooltip"
+                    >Langage C++ - Programmation orientée objet</span
+                  >
+                </a>
+                <a
+                  href="#competences-terminal"
+                  class="tech-icon tooltip-container"
+                >
+                  <i class="ri-terminal-box-line text-2xl text-light"></i>
+                  <span class="tooltip"
+                    >Environnements de développement (STM32CubeIDE,
+                    Arduino)</span
+                  >
+                </a>
+                <a
+                  href="#competences-android"
+                  class="tech-icon tooltip-container"
+                >
+                  <i class="ri-android-line text-2xl text-green-400"></i>
+                  <span class="tooltip">Développement Android</span>
+                </a>
+                <a href="#competences-cpu" class="tech-icon tooltip-container">
+                  <i class="ri-cpu-line text-2xl text-red-400"></i>
+                  <span class="tooltip"
+                    >Systèmes embarqués et microcontrôleurs</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+          <p>Scroll pour découvrir</p>
+          <div class="scroll-mouse">
+            <div class="scroll-wheel"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Section -->
+      <section id="parcours" class="timeline-section">
+        <div class="container">
+          <h2 class="section-title">Mon Parcours</h2>
+          <div class="timeline">
+            <!-- Aujourd'hui (Plus récent) -->
+            <div class="timeline-item">
+              <div class="timeline-badge current">
+                <i class="ri-search-line"></i>
+              </div>
+              <div class="timeline-content highlight">
+                <span class="timeline-date">2024 - Aujourd'hui</span>
+                <h3>À la recherche d'opportunités</h3>
+                <p>
+                  Je suis actuellement à la recherche d'opportunités dans le
+                  domaine des systèmes embarqués et de l'électronique. Je
+                  souhaite mettre à profit mes compétences en C/C++,
+                  développement Arduino/STM32 et conception électronique au sein
+                  d'une équipe dynamique et innovante.
+                </p>
+              </div>
+            </div>
+
+            <!-- Semestre 8 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S8</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2023</span>
+                <h3>Études d'ingénieur à l'ESEO - Angers</h3>
+                <p>
+                  Formation d'ingénieur généraliste avec une spécialisation
+                  progressive vers les systèmes embarqués, l'électronique et la
+                  programmation.
+                </p>
+                <a href="#projet-prose" class="timeline-link">Projet: ProSe</a>
+              </div>
+            </div>
+
+            <!-- Semestre 7 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S7</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2022-2023</span>
+                <h3>Stage S7 - Tokyo, Japon</h3>
+                <p>
+                  Développement d'un système de détection des coups d'épées,
+                  incluant l'étude et la réalisation d'un filtre analogique
+                  (Tchebychev) et l'analyse d'articles scientifiques sur le
+                  filtrage analogique.
+                </p>
+                <a href="#projet-japon" class="timeline-link"
+                  >Projet: Stage Japon</a
+                >
+              </div>
+            </div>
+
+            <!-- Semestre 6 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S6</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2022</span>
+                <h3>Formation complémentaire</h3>
+                <p>
+                  MOOC en Gestion de Projet, SST et BAFA à l'UFCV avec
+                  spécialisation Surveillant de baignade.
+                </p>
+              </div>
+            </div>
+
+            <!-- Semestre 5 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S5</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2021-2022</span>
+                <h3>Spécialisation en Systèmes Embarqués - ESEO</h3>
+                <p>
+                  Poursuite de mon cursus d'ingénieur avec une spécialisation en
+                  systèmes embarqués, architecture système, sûreté de
+                  fonctionnement et programmation multitâche.
+                </p>
+                <a href="#projet-de" class="timeline-link"
+                  >Projet: Dé électronique</a
+                >
+                <a href="#projet-robot" class="timeline-link"
+                  >Projet: Robot Télécommandé</a
+                >
+              </div>
+            </div>
+
+            <!-- Semestre 4 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S4</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2021</span>
+                <h3>Cycle Préparatoire - Deuxième Année</h3>
+                <p>
+                  Approfondissement des connaissances en électronique,
+                  mathématiques appliquées et sciences physiques. Initiation aux
+                  microcontrôleurs et à la programmation embarquée.
+                </p>
+              </div>
+            </div>
+
+            <!-- Semestre 3 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S3</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2020-2021</span>
+                <h3>Cycle Préparatoire - Deuxième Année</h3>
+                <p>
+                  Cours d'électronique analogique, mathématiques pour
+                  l'ingénieur et introduction à la programmation orientée objet.
+                </p>
+              </div>
+            </div>
+
+            <!-- Semestre 2 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S2</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2020</span>
+                <h3>Cycle Préparatoire - Première Année</h3>
+                <p>
+                  Formation aux fondamentaux des sciences de l'ingénieur :
+                  mathématiques, physique et initiation à l'électronique
+                  numérique.
+                </p>
+              </div>
+            </div>
+
+            <!-- Semestre 1 -->
+            <div class="timeline-item">
+              <div class="timeline-badge">S1</div>
+              <div class="timeline-content">
+                <span class="timeline-date">2019-2020</span>
+                <h3>Entrée à l'ESEO - Angers</h3>
+                <p>
+                  Début du cycle préparatoire intégré avec introduction aux
+                  concepts fondamentaux de l'ingénierie électronique et
+                  informatique.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projets Section -->
+      <section id="projets" class="projects-section">
+        <div class="container">
+          <h2 class="section-title">Mes Projets</h2>
+
+          <!-- Filtres de projets -->
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="c-cpp">C/C++</button>
+            <button class="filter-btn" data-filter="embedded">Embarqué</button>
+            <button class="filter-btn" data-filter="electronics">
+              Électronique
+            </button>
+            <button class="filter-btn" data-filter="academic">
+              Académique
+            </button>
+            <button class="filter-btn" data-filter="pro">Professionnel</button>
+          </div>
+
+          <!-- Liste des projets -->
+          <div class="projects-grid">
+            <!-- Projet ProSe -->
+            <div class="project-card c-cpp embedded pro" id="projet-prose">
+              <div class="project-header">
+                <h3>ProSe - Système d'Affichage Dynamique</h3>
+                <span class="project-category"
+                  >Projet Académique | S8 - 2023</span
+                >
+              </div>
+              <div class="project-tags">
+                <span class="project-tag">C</span>
+                <span class="project-tag">Raylib</span>
+                <span class="project-tag">TCP/IP</span>
+                <span class="project-tag">UML</span>
+                <span class="project-tag">JMeter</span>
+              </div>
+              <div class="project-description">
+                <p>
+                  Conception et développement d'un système d'affichage dynamique
+                  avec architecture SOLID et modélisation UML complète.
+                </p>
+              </div>
+              <a href="projects/prose/index.html" class="project-link"
+                >Voir les détails</a
+              >
+            </div>
+
+            <!-- Projet Robot -->
+            <div
+              class="project-card c-cpp embedded electronics"
+              id="projet-robot"
+            >
+              <div class="project-header">
+                <h3>Robot Télécommandé</h3>
+                <span class="project-category"
+                  >Projet Personnel | 2021-2022</span
+                >
+              </div>
+              <div class="project-tags">
+                <span class="project-tag">C++</span>
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">ESP32</span>
+              </div>
+              <div class="project-description">
+                <p>
+                  Conception d'un robot avec modélisation 3D, intégration d'une
+                  caméra ESP32-CAM pour streaming vidéo via WiFi et contrôle des
+                  moteurs via Arduino UNO.
+                </p>
+              </div>
+              <a href="projects/robot/index.html" class="project-link"
+                >Voir les détails</a
+              >
+            </div>
+
+            <!-- Projet Dé Électronique -->
+            <div
+              class="project-card c-cpp embedded electronics academic"
+              id="projet-de"
+            >
+              <div class="project-header">
+                <h3>Dé Électronique sur PCB</h3>
+                <span class="project-category"
+                  >Projet Académique | S5 - 2021</span
+                >
+              </div>
+              <div class="project-tags">
+                <span class="project-tag">C</span>
+                <span class="project-tag">STM32CubeIDE</span>
+                <span class="project-tag">Électronique</span>
+                <span class="project-tag">PCB</span>
+              </div>
+              <div class="project-description">
+                <p>
+                  Conception et réalisation d'un dé électronique sur PCB
+                  intégrant un écran TFT, un accéléromètre et un afficheur 7
+                  segments.
+                </p>
+              </div>
+              <a href="projects/de-electronique/index.html" class="project-link"
+                >Voir les détails</a
+              >
+            </div>
+
+            <!-- Projet Stage Japon -->
+            <div class="project-card c-cpp electronics pro" id="projet-japon">
+              <div class="project-header">
+                <h3>Système de Détection des Coups d'Épée</h3>
+                <span class="project-category"
+                  >Stage International | S7 - 2022-2023</span
+                >
+              </div>
+              <div class="project-tags">
+                <span class="project-tag">Filtrage Analogique</span>
+                <span class="project-tag">Tchebychev</span>
+                <span class="project-tag">Recherche</span>
+                <span class="project-tag">International</span>
+              </div>
+              <div class="project-description">
+                <p>
+                  Stage de 5 mois à Tokyo, Japon, axé sur le développement d'un
+                  système de détection des coups d'épée pour l'escrime.
+                </p>
+              </div>
+              <a href="projects/stage-japon/index.html" class="project-link"
+                >Voir les détails</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Compétences Section -->
+      <section id="competences" class="skills-section">
+        <div class="container">
+          <h2 class="section-title">Compétences Techniques</h2>
+
+          <!-- Visualisation 3D des compétences -->
+          <div class="skills-viz">
+            <canvas id="skills-canvas"></canvas>
+          </div>
+
+          <div class="skills-grid">
+            <!-- Section Électronique -->
+            <div class="skills-category">
+              <h3 class="skills-category-title">
+                <i class="ri-device-line"></i>
+                Électronique
+              </h3>
+
+              <!-- Analyse et conception -->
+              <div class="skills-subcategory">
+                <h4>Analyse et conception</h4>
+
+                <div class="skill-item-new">
+                  <h5>Fonctions de transfert</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Conception de filtre Tchebychev (Stage Japon)</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span
+                        >Modélisation de systèmes pour filtrage analogique</span
+                      >
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Analyse de réponses fréquentielles</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>Diagrammes de Bode</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Analyse et conception de filtres actifs</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Caractérisation des systèmes dynamiques</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>Analyse de signaux et spectres</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Détection de mouvements d'épée (Stage Japon)</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span
+                        >Traitement de signaux accéléromètre (Dé
+                        électronique)</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Conception de circuits -->
+              <div class="skills-subcategory">
+                <h4>Conception de circuits</h4>
+
+                <div class="skill-item-new">
+                  <h5>Filtres actifs et passifs</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Conception filtre passe-bande pour escrime</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Implémentation de filtre Tchebychev</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>Conception PCB</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Réalisation PCB pour dé électronique</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Intégration de microcontrôleurs et capteurs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>LT-Spice (simulation)</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Simulation de filtres analogiques</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Modélisation de circuits électroniques</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section Informatique -->
+            <div class="skills-category">
+              <h3 class="skills-category-title">
+                <i class="ri-code-line"></i>
+                Informatique & Systèmes Embarqués
+              </h3>
+
+              <!-- Langages de programmation -->
+              <div class="skills-subcategory">
+                <h4>Langages de programmation</h4>
+
+                <div class="skill-item-new">
+                  <h5>C</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span
+                        >Développement système ProSe (architecture SOLID)</span
+                      >
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Programmation STM32 (Dé électronique)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>C++</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Développement contrôleur pour robot</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Programmation orientée objet</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Systèmes embarqués -->
+              <div class="skills-subcategory">
+                <h4>Systèmes embarqués</h4>
+
+                <div class="skill-item-new">
+                  <h5>Arduino</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Contrôle moteurs du robot (L298N)</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Lecture d'encodeurs pour position</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>ESP32</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Streaming vidéo avec ESP32-CAM</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Communication WiFi</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>STM32</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Programmation STM32F407 (Dé électronique)</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Interfaçage avec accéléromètre et afficheurs</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Protocoles & Communications -->
+              <div class="skills-subcategory">
+                <h4>Protocoles & Communications</h4>
+
+                <div class="skill-item-new">
+                  <h5>I2C/SPI/UART</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Communication avec accéléromètre (I2C)</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Interface écran TFT (SPI)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>TCP/IP</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Architecture client-serveur (ProSe)</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Tests de performance avec JMeter</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Outils & Méthodologies -->
+              <div class="skills-subcategory">
+                <h4>Outils & Méthodologies</h4>
+
+                <div class="skill-item-new">
+                  <h5>Modélisation UML</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Diagrammes UML conformes ISO/IEC 19505</span>
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span>Modélisation d'architecture système (ProSe)</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skill-item-new">
+                  <h5>Méthodologie SOLID</h5>
+                  <div class="skill-applications">
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span
+                        >Architecture modulaire pour système d'affichage</span
+                      >
+                    </div>
+                    <div class="skill-app">
+                      <i class="ri-check-line"></i>
+                      <span
+                        >Conception de classes avec responsabilité unique</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Témoignages Section -->
+      <section id="temoignages" class="testimonials-section">
+        <div class="container">
+          <h2 class="section-title">Témoignages</h2>
+
+          <div class="testimonials-slider">
+            <!-- Témoignage 1 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
+                  <i class="ri-user-line"></i>
+                </div>
+                <div class="testimonial-info">
+                  <h4>Dr. Tanaka Hiroshi</h4>
+                  <p>Superviseur de stage, Tokyo</p>
+                </div>
+              </div>
+              <blockquote class="testimonial-text">
+                <p>
+                  "Matthieu a démontré une excellente compréhension des
+                  principes du filtrage analogique et une capacité remarquable à
+                  s'adapter dans un environnement international. Son travail sur
+                  le filtre Tchebychev a largement contribué à l'avancement de
+                  notre projet."
+                </p>
+              </blockquote>
+            </div>
+
+            <!-- Témoignage 2 -->
+            <div class="testimonial-card">
+              <div class="testimonial-author">
+                <div class="testimonial-avatar">
+                  <i class="ri-user-line"></i>
+                </div>
+                <div class="testimonial-info">
+                  <h4>Prof. Martin Dubois</h4>
+                  <p>Enseignant-chercheur, ESEO</p>
+                </div>
+              </div>
+              <blockquote class="testimonial-text">
+                <p>
+                  "J'ai été impressionné par la rigueur et la créativité de
+                  Matthieu lors du projet ProSe. Sa maîtrise des principes SOLID
+                  et sa capacité à concevoir des architectures logicielles
+                  robustes sont des atouts précieux."
+                </p>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section">
+        <div class="container">
+          <h2 class="section-title">Me Contacter</h2>
+
+          <div class="contact-content">
+            <div class="contact-info">
+              <div class="contact-item">
+                <i class="ri-mail-line"></i>
+                <div>
+                  <h4>Email</h4>
+                  <p>matthieu.tremblay@reseau.eseo.fr</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <i class="ri-phone-line"></i>
+                <div>
+                  <h4>Téléphone</h4>
+                  <p>06 18 97 12 21</p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <i class="ri-map-pin-line"></i>
+                <div>
+                  <h4>Localisation</h4>
+                  <p>39 Chemin des Chalets, 49100 Angers</p>
+                </div>
+              </div>
+
+              <div class="social-links">
+                <a href="#" class="social-link"
+                  ><i class="ri-github-fill"></i
+                ></a>
+                <a
+                  href="https://www.linkedin.com/in/tremblay-matthieu"
+                  class="social-link"
+                  ><i class="ri-linkedin-fill"></i
+                ></a>
+                <a href="#" class="social-link"
+                  ><i class="ri-twitter-fill"></i
+                ></a>
+              </div>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+              <div class="form-group">
+                <label for="name">Nom</label>
+                <input type="text" id="name" placeholder="Votre nom" />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Votre email" />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Sujet</label>
+                <input
+                  type="text"
+                  id="subject"
+                  placeholder="Sujet de votre message"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  placeholder="Votre message"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Envoyer le message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="#accueil">Accueil</a>
+            <a href="#parcours">Parcours</a>
+            <a href="#projets">Projets</a>
+            <a href="#competences">Compétences</a>
+            <a href="#temoignages">Témoignages</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/utils/animations.js"></script>
+    <script src="js/utils/scroll.js"></script>
+    <script src="js/components/navigation.js"></script>
+    <script src="js/components/timeline.js"></script>
+    <script src="js/components/project-filter.js"></script>
+    <script src="js/three-background.js"></script>
+    <script src="js/skills-visualization.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
