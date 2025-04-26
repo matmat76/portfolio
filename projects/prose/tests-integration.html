@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Tests d'Intégration - Matthieu Tremblay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Tests d'Intégration</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Tests d'Intégration</span>
+            <span>Automatisation avec Robot Framework</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item"
+              >Spécification</a
+            >
+            <a href="conception-generale.html" class="prose-cycle-item"
+              >Conception Générale</a
+            >
+            <a href="conception-detaillee.html" class="prose-cycle-item"
+              >Conception Détaillée</a
+            >
+            <a href="implementation.html" class="prose-cycle-item"
+              >Implémentation</a
+            >
+            <a href="tests-composants.html" class="prose-cycle-item"
+              >Tests Composants</a
+            >
+            <a href="tests-integration.html" class="prose-cycle-item active"
+              >Tests Intégration</a
+            >
+            <a href="tests-fonctionnels.html" class="prose-cycle-item"
+              >Tests Fonctionnels</a
+            >
+            <a href="tests-performances.html" class="prose-cycle-item"
+              >Tests Performances</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Approche des tests d'intégration</h2>
+            <p>
+              Les tests d'intégration constituent une étape cruciale dans la
+              validation du système ProSE, permettant de vérifier que les
+              différents modules fonctionnent correctement ensemble.
+              Contrairement aux tests unitaires qui se concentrent sur les
+              composants isolés, les tests d'intégration valident les
+              interactions entre les différentes parties du système.
+            </p>
+
+            <h3>Objectifs des tests d'intégration</h3>
+            <ul>
+              <li>Vérifier les interfaces entre les composants</li>
+              <li>Détecter les problèmes de communication entre modules</li>
+              <li>Valider le passage des données entre les sous-systèmes</li>
+              <li>
+                S'assurer que les flux de travail complexes fonctionnent
+                correctement
+              </li>
+            </ul>
+
+            <h2>Robot Framework pour l'automatisation des tests</h2>
+            <p>
+              Pour automatiser nos tests d'intégration, nous avons choisi
+              d'utiliser Robot Framework, un outil open-source qui permet de
+              créer des tests avec une syntaxe lisible et facilement
+              maintenable.
+            </p>
+
+            <div class="prose-diagram">
+              <svg width="100%" height="250" viewBox="0 0 800 250">
+                <!-- Logo Robot Framework (schématisé) -->
+                <rect
+                  x="350"
+                  y="20"
+                  width="100"
+                  height="70"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text
+                  x="400"
+                  y="60"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Robot
+                </text>
+                <text
+                  x="400"
+                  y="80"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  Framework
+                </text>
+
+                <!-- Couches de test -->
+                <rect
+                  x="100"
+                  y="150"
+                  width="150"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text x="175" y="180" text-anchor="middle" fill="#e2e8f0">
+                  Bibliothèques
+                </text>
+
+                <rect
+                  x="325"
+                  y="150"
+                  width="150"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text x="400" y="180" text-anchor="middle" fill="#e2e8f0">
+                  Keywords
+                </text>
+
+                <rect
+                  x="550"
+                  y="150"
+                  width="150"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text x="625" y="180" text-anchor="middle" fill="#e2e8f0">
+                  Test Cases
+                </text>
+
+                <!-- Liens -->
+                <line
+                  x1="175"
+                  y1="150"
+                  x2="375"
+                  y2="90"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                />
+                <line
+                  x1="400"
+                  y1="90"
+                  x2="400"
+                  y2="150"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                />
+                <line
+                  x1="625"
+                  y1="150"
+                  x2="425"
+                  y2="90"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                />
+              </svg>
+            </div>
+
+            <h3>Avantages de Robot Framework</h3>
+            <ul>
+              <li>Syntaxe lisible basée sur des tables</li>
+              <li>Extensible via des bibliothèques spécifiques au domaine</li>
+              <li>Rapports de test détaillés et visuels</li>
+              <li>Compatible avec les méthodologies de développement agile</li>
+              <li>Intégration facile dans les pipelines CI/CD</li>
+            </ul>
+
+            <h2>Implémentation des tests d'intégration</h2>
+
+            <h3>Structure des tests Robot Framework</h3>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title"
+                  >catalog_integration_tests.robot - Test d'intégration du
+                  module Catalog</span
+                >
+              </div>
+              <pre><code>*** Settings ***
+Documentation     Tests d'intégration pour le module Catalog
+Library           ProSELibrary.py
+Library           Collections
+Suite Setup       Initialize Test Environment
+Suite Teardown    Cleanup Test Environment
+
+*** Variables ***
+${TEST_SERVER}    http://localhost:8080
+${CATALOG_ID}     42
+${DISPLAY_DURATION}    10
+
+*** Test Cases ***
+Catalog Should Load Data From Server
+    [Documentation]    Vérifie que le catalogue charge correctement les données depuis le serveur
+    ${catalog} =    Create Catalog    ${CATALOG_ID}
+    Start Catalog    ${catalog}    ${DISPLAY_DURATION}
+    Wait Until Keyword Succeeds    10s    1s    Catalog Should Be In State    ${catalog}    CATALOG_READY
+    ${data_loaded} =    Get Catalog Data Loaded    ${catalog}
+    Should Be True    ${data_loaded}
+    
+Catalog Should Transition To Display State
+    [Documentation]    Vérifie la transition vers l'état d'affichage
+    ${catalog} =    Create Catalog    ${CATALOG_ID}
+    Start Catalog    ${catalog}    ${DISPLAY_DURATION}
+    Wait Until Keyword Succeeds    10s    1s    Catalog Should Be In State    ${catalog}    CATALOG_READY
+    Display First Item    ${catalog}
+    Wait Until Keyword Succeeds    5s    0.5s    Catalog Should Be In State    ${catalog}    CATALOG_DISPLAYING
+    
+Catalog Should Notify On State Change
+    [Documentation]    Vérifie que les notifications sont envoyées lors des changements d'état
+    ${catalog} =    Create Catalog    ${CATALOG_ID}
+    Register Notification Listener
+    Start Catalog    ${catalog}    ${DISPLAY_DURATION}
+    Wait Until Keyword Succeeds    10s    1s    Notification Should Be Received    CATALOG_STATE_CHANGED
+
+*** Keywords ***
+Initialize Test Environment
+    Start Mock Server    ${TEST_SERVER}
+    Load Test Data
+    
+Cleanup Test Environment
+    Stop Mock Server</code></pre>
+            </div>
+
+            <h3>Bibliothèque d'intégration personnalisée</h3>
+            <p>
+              Pour interfacer Robot Framework avec notre système C, nous avons
+              développé une bibliothèque Python qui expose les fonctionnalités
+              nécessaires aux tests.
+            </p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title"
+                  >ProSELibrary.py - Bibliothèque d'interface pour Robot
+                  Framework</span
+                >
+              </div>
+              <pre><code>import ctypes
+import os
+import time
+from robot.api import logger
+
+class ProSELibrary:
+    """
+    Bibliothèque Robot Framework pour tester le système ProSE
+    """
+    
+    ROBOT_LIBRARY_SCOPE = 'SUITE'
+    
+    def __init__(self):
+        # Chargement de la bibliothèque C
+        lib_path = os.environ.get('PROSE_LIB_PATH', './libprose.so')
+        self.lib = ctypes.CDLL(lib_path)
+        
+        # Configuration des types de retour
+        self.lib.catalog_create.restype = ctypes.c_void_p
+        self.lib.catalog_get_state.restype = ctypes.c_int
+        
+        # Initialisation des structures
+        self.notifications = []
+        
+    def create_catalog(self, catalog_id):
+        """Crée une instance de catalogue pour les tests"""
+        logger.info(f"Création du catalogue avec ID {catalog_id}")
+        catalog_ptr = self.lib.catalog_create(ctypes.c_int(catalog_id))
+        return catalog_ptr
+        
+    def start_catalog(self, catalog_ptr, duration):
+        """Démarre le catalogue avec la durée spécifiée"""
+        logger.info(f"Démarrage du catalogue avec durée {duration}")
+        result = self.lib.catalog_ask_start_catalog(
+            ctypes.c_void_p(catalog_ptr),
+            ctypes.c_int(duration)
+        )
+        return result == 0
+    
+    def catalog_should_be_in_state(self, catalog_ptr, expected_state):
+        """Vérifie que le catalogue est dans l'état attendu"""
+        state_map = {
+            "CATALOG_LOADING": 0,
+            "CATALOG_READY": 1,
+            "CATALOG_DISPLAYING": 2
+        }
+        
+        expected = state_map.get(expected_state, -1)
+        if expected == -1:
+            raise ValueError(f"État inconnu: {expected_state}")
+            
+        current = self.lib.catalog_get_state(ctypes.c_void_p(catalog_ptr))
+        
+        if current != expected:
+            states = {v: k for k, v in state_map.items()}
+            current_name = states.get(current, f"UNKNOWN({current})")
+            raise AssertionError(
+                f"Le catalogue est dans l'état {current_name}, "
+                f"mais l'état attendu est {expected_state}"
+            )
+        
+        return True
+    
+    # Autres méthodes d'interface pour les tests...</code></pre>
+            </div>
+
+            <h2>Scénarios de test d'intégration</h2>
+
+            <div class="prose-test-scenarios">
+              <div class="prose-test-scenario">
+                <h4>Scénario 1: Communication entre Catalog et le serveur</h4>
+                <p>
+                  Ce scénario vérifie que le module Catalog peut communiquer
+                  avec le serveur pour récupérer les données nécessaires à
+                  l'affichage.
+                </p>
+                <p>
+                  <strong>Étapes:</strong>
+                </p>
+                <ol>
+                  <li>Initialiser le catalogue</li>
+                  <li>Configurer le serveur mock avec des données de test</li>
+                  <li>Démarrer le catalogue</li>
+                  <li>Vérifier que les données sont correctement récupérées</li>
+                </ol>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>Scénario 2: Intégration Catalog-Widget Manager</h4>
+                <p>
+                  Ce scénario teste l'interaction entre le module Catalog et le
+                  gestionnaire de widgets, notamment la coordination de
+                  l'affichage et les transitions.
+                </p>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-warning">Avertissement</span> - Temps
+                  de transition parfois plus longs que prévu
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>Scénario 3: Système de notification</h4>
+                <p>
+                  Ce scénario vérifie que le système de notification entre les
+                  composants fonctionne correctement, notamment pour les
+                  changements d'état et les événements.
+                </p>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+            </div>
+
+            <h2>Résultats des tests d'intégration</h2>
+
+            <p>
+              L'exécution des tests d'intégration avec Robot Framework a fourni
+              des résultats détaillés sur le fonctionnement des interactions
+              entre les différents modules.
+            </p>
+
+            <div class="prose-coverage">
+              <div class="prose-coverage-bar">
+                <div class="prose-coverage-fill" style="width: 92%">92%</div>
+              </div>
+              <p>
+                Taux de réussite des tests d'intégration: 92%. Les problèmes
+                identifiés sont principalement liés à des cas limites de
+                synchronisation entre les modules.
+              </p>
+            </div>
+
+            <h3>Problèmes identifiés et corrections</h3>
+            <ul>
+              <li>
+                <strong>Délai de synchronisation</strong>: Certaines transitions
+                d'état prenaient plus de temps que prévu. Solution: ajout d'un
+                délai configurable entre les transitions.
+              </li>
+              <li>
+                <strong>Gestion des erreurs réseau</strong>: Comportement
+                instable en cas d'échec de connexion au serveur. Solution:
+                amélioration du mécanisme de retry et de fallback.
+              </li>
+              <li>
+                <strong>Conflit de ressources</strong>: Problème d'accès
+                concurrent aux données partagées. Solution: mise en place d'un
+                système de verrouillage plus robuste.
+              </li>
+            </ul>
+
+            <h2>Évolution des tests au fil du développement</h2>
+            <p>
+              Les tests d'intégration ont évolué au fur et à mesure du
+              développement du projet, s'enrichissant de nouveaux scénarios à
+              mesure que les fonctionnalités étaient implémentées. Robot
+              Framework a facilité cette évolution grâce à sa structure
+              modulaire et sa syntaxe claire.
+            </p>
+
+            <div class="prose-navigation">
+              <a href="tests-composants.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Tests Composants
+              </a>
+              <a href="tests-fonctionnels.html" class="prose-nav-next">
+                Tests Fonctionnels <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>

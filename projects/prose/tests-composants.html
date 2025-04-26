@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Tests Composants - Matthieu Tremblay</title>
+
+    <!-- Inclure les mêmes styles et fonts que les autres pages -->
+    <!-- [CSS et fonts comme dans l'exemple précédent] -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <!-- [Contenu du header comme dans l'exemple précédent] -->
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link">Compétences</a>
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Tests Composants</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Tests Composants</span>
+            <span>Validation unitaire des modules</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item">Spécification</a>
+            <a href="conception-generale.html" class="prose-cycle-item">Conception Générale</a>
+            <a href="conception-detaillee.html" class="prose-cycle-item">Conception Détaillée</a>
+            <a href="implementation.html" class="prose-cycle-item">Implémentation</a>
+            <a href="tests-composants.html" class="prose-cycle-item active">Tests Composants</a>
+            <a href="tests-integration.html" class="prose-cycle-item">Tests Intégration</a>
+            <a href="tests-fonctionnels.html" class="prose-cycle-item">Tests Fonctionnels</a>
+            <a href="tests-performances.html" class="prose-cycle-item">Tests Performances</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Approche de test des composants</h2>
+            <p>
+              Les tests des composants correspondent à la validation unitaire des modules implémentés
+              dans le cadre du projet ProSE. Cette phase de test est essentielle pour s'assurer que
+              chaque élément du système fonctionne correctement de manière isolée, avant d'être intégré
+              au reste du système.
+            </p>
+
+            <h3>Méthodologie de test</h3>
+            <p>
+              Notre approche des tests unitaires repose sur plusieurs principes:
+            </p>
+            <ul>
+              <li><strong>Isolation complète</strong> : Chaque module est testé indépendamment des autres</li>
+              <li><strong>Utilisation de mocks</strong> : Les dépendances externes sont simulées</li>
+              <li><strong>Tests automatisés</strong> : Exécution automatique via des scripts</li>
+              <li><strong>Couverture de code</strong> : Objectif de couvrir plus de 80% du code</li>
+            </ul>
+
+            <h2>Outils et frameworks utilisés</h2>
+
+            <p>
+              Pour implémenter nos tests unitaires en C, nous avons utilisé les outils suivants:
+            </p>
+
+            <div class="prose-test-strategy">
+              <div class="prose-test-level">
+                <h3>Assertions</h3>
+                <p>
+                  Utilisation d'assertions dans le code pour valider les conditions aux limites
+                  et les invariants.
+                </p>
+              </div>
+              <div class="prose-test-level">
+                <h3>Mocks</h3>
+                <p>
+                  Implémentation de composants factices pour simuler les dépendances et isoler
+                  le composant testé.
+                </p>
+              </div>
+              <div class="prose-test-level">
+                <h3>Shell Scripts</h3>
+                <p>
+                  Scripts d'automatisation pour exécuter les tests et collecter les résultats.
+                </p>
+              </div>
+            </div>
+
+            <h2>Tests du module Catalog</h2>
+            
+            <p>
+              Le module Catalog a fait l'objet d'une série de tests unitaires rigoureux pour valider 
+              son comportement dans différentes conditions.
+            </p>
+
+            <h3>Tests d'initialisation</h3>
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">test_catalog_init.c</span>
+              </div>
+              <pre><code>/**
+ * Test d'initialisation du catalogue
+ */
+#include <stdio.h>
+#include <assert.h>
+#include "../src/catalog.h"
+
+int test_catalog_init() {
+    catalogue_t catalog;
+    int catalog_id = 42;
+    
+    // Initialiser le catalogue
+    int result = catalog_init(&catalog, catalog_id);
+    
+    // Vérifier le résultat
+    assert(result == 0);
+    
+    // Vérifier que l'initialisation a correctement défini les valeurs par défaut
+    assert(catalog.id == catalog_id);
+    assert(catalog.state == CATALOG_LOADING);
+    assert(catalog.nb_videos == 0);
+    assert(catalog.nb_projets == 0);
+    assert(catalog.nb_collaborateurs == 0);
+    assert(catalog.videos == NULL);
+    assert(catalog.projets == NULL);
+    assert(catalog.collaborateurs == NULL);
+    
+    // Libérer les ressources
+    catalog_free(&catalog);
+    
+    printf("Test d'initialisation du catalogue réussi!\n");
+    return 0;
+}
+
+int main() {
+    return test_catalog_init();
+}</code></pre>
+            </div>
+
+            <h3>Tests de la machine à états</h3>
+            <p>
+              La machine à états du catalogue a été testée en vérifiant les transitions entre les états
+              lors des différentes phases de son cycle de vie.
+            </p>
+
+            <div class="prose-test-scenarios">
+              <div class="prose-test-scenario">
+                <h4>Scénario: Transition de LOADING à READY</h4>
+                <p>
+                  Ce scénario vérifie que le catalogue passe correctement de l'état LOADING à READY
+                  lorsque toutes les données sont chargées.
+                </p>
+                <p>
+                  <strong>Étapes:</strong>
+                </p>
+                <ol>
+                  <li>Initialiser le catalogue</li>
+                  <li>Simuler le chargement des données</li>
+                  <li>Appeler catalog_update()</li>
+                  <li>Vérifier que l'état est passé à READY</li>
+                </ol>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>Scénario: Transition de READY à DISPLAYING</h4>
+                <p>
+                  Ce scénario vérifie que le catalogue passe correctement de l'état READY à DISPLAYING
+                  lorsqu'on demande l'affichage d'un élément.
+                </p>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+            </div>
+
+            <h2>Résultats des tests</h2>
+            
+            <h3>Couverture de code</h3>
+            <div class="prose-coverage">
+              <div class="prose-coverage-bar">
+                <div class="prose-coverage-fill" style="width: 85%;">85%</div>
+              </div>
+              <p>
+                La couverture de code atteinte pour les tests unitaires est de 85%, ce qui dépasse 
+                légèrement notre objectif initial de 80%. Les parties non couvertes concernent 
+                principalement des cas d'erreur très spécifiques difficiles à reproduire en test unitaire.
+              </p>
+            </div>
+
+            <h3>Défauts identifiés</h3>
+            <p>
+              Lors des tests unitaires, plusieurs défauts ont été identifiés et corrigés:
+            </p>
+            <ul>
+              <li>Fuite mémoire dans la fonction <code>catalog_free()</code></li>
+              <li>Condition de course potentielle dans la gestion de la file de messages</li>
+              <li>Gestion incorrecte des erreurs réseau lors du chargement des données</li>
+              <li>Buffer overflow potentiel dans le parsing des données JSON</li>
+            </ul>
+
+            <div class="prose-navigation">
+              <a href="implementation.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Implémentation
+              </a>
+              <a href="tests-integration.html" class="prose-nav-next">
+                Tests Intégration <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <!-- [Contenu du footer comme dans l'exemple précédent] -->
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>

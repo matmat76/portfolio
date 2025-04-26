@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Conception Détaillée - Matthieu Tremblay</title>
+
+    <!-- Inclure les mêmes styles et fonts que les autres pages -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link">Compétences</a>
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Conception Détaillée</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Conception Détaillée</span>
+            <span>Diagrammes de classes et architectures de communication</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item">Spécification</a>
+            <a href="conception-generale.html" class="prose-cycle-item">Conception Générale</a>
+            <a href="conception-detaillee.html" class="prose-cycle-item active">Conception Détaillée</a>
+            <a href="implementation.html" class="prose-cycle-item">Implémentation</a>
+            <a href="tests-composants.html" class="prose-cycle-item">Tests Composants</a>
+            <a href="tests-integration.html" class="prose-cycle-item">Tests Intégration</a>
+            <a href="tests-fonctionnels.html" class="prose-cycle-item">Tests Fonctionnels</a>
+            <a href="tests-performances.html" class="prose-cycle-item">Tests Performances</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Architecture détaillée des modules</h2>
+            <p>
+              La conception détaillée du projet ProSE se concentre sur la structure interne des composants, 
+              les mécanismes de communication entre modules, et la gestion avancée des ressources. Cette 
+              phase approfondit les aspects techniques qui permettront l'implémentation concrète du système.
+            </p>
+
+            <h3>Diagrammes de classes détaillés</h3>
+            <div class="prose-diagram">
+              <!-- Vous pouvez intégrer ici un diagramme SVG ou une image de diagramme UML détaillé -->
+              <svg width="100%" height="400" viewBox="0 0 800 400">
+                <!-- Exemple de diagramme de classes simplifié -->
+                <!-- Classe Catalog -->
+                <rect x="50" y="50" width="200" height="200" rx="5" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+                <line x1="50" y1="80" x2="250" y2="80" stroke="#3b82f6" stroke-width="2"/>
+                <line x1="50" y1="150" x2="250" y2="150" stroke="#3b82f6" stroke-width="2"/>
+                <text x="150" y="70" text-anchor="middle" fill="#e2e8f0" font-weight="bold">Catalog</text>
+                
+                <!-- Attributs -->
+                <text x="60" y="100" fill="#94a3b8" font-size="12">- catalog_data: CatalogData</text>
+                <text x="60" y="120" fill="#94a3b8" font-size="12">- dispatcher: MessageDispatcher</text>
+                <text x="60" y="140" fill="#94a3b8" font-size="12">- state: CatalogState</text>
+                
+                <!-- Méthodes -->
+                <text x="60" y="170" fill="#e2e8f0" font-size="12">+ initialize(): void</text>
+                <text x="60" y="190" fill="#e2e8f0" font-size="12">+ process_message(msg: Message): void</text>
+                <text x="60" y="210" fill="#e2e8f0" font-size="12">+ update(delta_time: float): void</text>
+                <text x="60" y="230" fill="#e2e8f0" font-size="12">+ cleanup(): void</text>
+                
+                <!-- Classe MessageDispatcher -->
+                <rect x="350" y="50" width="200" height="200" rx="5" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+                <line x1="350" y1="80" x2="550" y2="80" stroke="#60a5fa" stroke-width="2"/>
+                <line x1="350" y1="150" x2="550" y2="150" stroke="#60a5fa" stroke-width="2"/>
+                <text x="450" y="70" text-anchor="middle" fill="#e2e8f0" font-weight="bold">MessageDispatcher</text>
+                
+                <!-- Attributs -->
+                <text x="360" y="100" fill="#94a3b8" font-size="12">- queues: Map<QueueId, MessageQueue></text>
+                <text x="360" y="120" fill="#94a3b8" font-size="12">- handlers: List<MessageHandler></text>
+                <text x="360" y="140" fill="#94a3b8" font-size="12">- is_active: bool</text>
+                
+                <!-- Méthodes -->
+                <text x="360" y="170" fill="#e2e8f0" font-size="12">+ register_handler(h: MessageHandler): void</text>
+                <text x="360" y="190" fill="#e2e8f0" font-size="12">+ send_message(msg: Message): void</text>
+                <text x="360" y="210" fill="#e2e8f0" font-size="12">+ process_messages(): void</text>
+                <text x="360" y="230" fill="#e2e8f0" font-size="12">+ shutdown(): void</text>
+                
+                <!-- Lignes de relation -->
+                <line x1="250" y1="120" x2="350" y2="120" stroke="#60a5fa" stroke-width="1.5"/>
+                <polygon points="340,115 350,120 340,125" fill="#60a5fa"/>
+              </svg>
+            </div>
+            
+            <h2>Patterns de communication</h2>
+            
+            <h3>Pattern Dispatcher-Postman</h3>
+            <p>
+              Pour faciliter la communication entre les différents modules du système, 
+              nous avons implémenté un pattern Dispatcher-Postman qui permet un découplage
+              total entre les composants. Ce pattern s'inspire du principe de messagerie asynchrone.
+            </p>
+            
+            <div class="prose-diagram">
+              <svg width="100%" height="300" viewBox="0 0 800 300">
+                <!-- Schéma du pattern Dispatcher -->
+                <rect x="350" y="30" width="100" height="60" rx="10" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+                <text x="400" y="65" text-anchor="middle" fill="#e2e8f0" font-weight="bold">Dispatcher</text>
+                
+                <!-- Composants qui communiquent -->
+                <rect x="100" y="150" width="100" height="60" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+                <text x="150" y="185" text-anchor="middle" fill="#e2e8f0">Module A</text>
+                
+                <rect x="250" y="150" width="100" height="60" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+                <text x="300" y="185" text-anchor="middle" fill="#e2e8f0">Module B</text>
+                
+                <rect x="400" y="150" width="100" height="60" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+                <text x="450" y="185" text-anchor="middle" fill="#e2e8f0">Module C</text>
+                
+                <rect x="550" y="150" width="100" height="60" rx="10" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
+                <text x="600" y="185" text-anchor="middle" fill="#e2e8f0">Module D</text>
+                
+                <!-- Flèches de communication -->
+                <line x1="150" y1="150" x2="375" y2="90" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <polygon points="370,85 380,95 365,95" fill="#e2e8f0"/>
+                
+                <line x1="300" y1="150" x2="375" y2="90" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <polygon points="370,85 380,95 365,95" fill="#e2e8f0"/>
+                
+                <line x1="450" y1="150" x2="400" y2="90" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <polygon points="395,95 405,85 405,95" fill="#e2e8f0"/>
+                
+                <line x1="600" y1="150" x2="425" y2="90" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <polygon points="420,95 430,85 430,95" fill="#e2e8f0"/>
+              </svg>
+            </div>
+            
+            <p>
+              Ce pattern présente plusieurs avantages :
+            </p>
+            <ul>
+              <li>Découplage complet entre les modules émetteurs et récepteurs</li>
+              <li>Facilité d'ajout de nouveaux composants sans modifier l'existant</li>
+              <li>Possibilité de mettre en place des mécanismes de priorité des messages</li>
+              <li>Traçabilité des échanges pour le débogage</li>
+            </ul>
+            
+            <h3>Gestion des entrées/sorties</h3>
+            <p>
+              Le système gère les entrées/sorties à travers une interface abstraction permettant
+              d'isoler le code métier des mécanismes d'I/O spécifiques.
+            </p>
+            
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">IOManager.h - Interface d'abstraction I/O</span>
+              </div>
+              <pre><code>/**
+ * Interface d'abstraction pour la gestion des I/O
+ */
+typedef struct {
+    void* user_data;
+    
+    // Fonctions d'entrée
+    int (*read_file)(void* user_data, const char* path, void** buffer, size_t* size);
+    int (*read_network)(void* user_data, const char* url, void** buffer, size_t* size);
+    
+    // Fonctions de sortie
+    int (*write_file)(void* user_data, const char* path, const void* data, size_t size);
+    int (*write_network)(void* user_data, const char* url, const void* data, size_t size);
+    
+    // Fonctions de statut
+    int (*check_status)(void* user_data, const char* resource_id);
+} io_manager_t;
+
+// Initialisation avec des implémentations par défaut
+void io_manager_init(io_manager_t* manager);
+
+// Définition des handlers personnalisés
+void io_manager_set_read_file_handler(io_manager_t* manager, 
+                                     int (*handler)(void*, const char*, void**, size_t*));
+                                     
+// Autres fonctions de configuration...</code></pre>
+            </div>
+            
+            <h2>Gestion du cycle de vie des objets</h2>
+            
+            <h3>Initialisation et destruction</h3>
+            <p>
+              Chaque composant du système suit un cycle de vie bien défini, comprenant les phases d'initialisation, 
+              d'exécution et de destruction. Ce modèle permet une gestion efficace des ressources et une meilleure 
+              stabilité du système.
+            </p>
+            
+            <div class="prose-diagram">
+              <svg width="100%" height="200" viewBox="0 0 800 200">
+                <!-- Cycle de vie -->
+                <rect x="100" y="80" width="120" height="40" rx="5" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+                <text x="160" y="105" text-anchor="middle" fill="#e2e8f0">Initialisation</text>
+                
+                <rect x="340" y="80" width="120" height="40" rx="5" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+                <text x="400" y="105" text-anchor="middle" fill="#e2e8f0">Exécution</text>
+                
+                <rect x="580" y="80" width="120" height="40" rx="5" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+                <text x="640" y="105" text-anchor="middle" fill="#e2e8f0">Destruction</text>
+                
+                <!-- Flèches -->
+                <line x1="220" y1="100" x2="340" y2="100" stroke="#e2e8f0" stroke-width="1.5"/>
+                <polygon points="330,95 340,100 330,105" fill="#e2e8f0"/>
+                
+                <line x1="460" y1="100" x2="580" y2="100" stroke="#e2e8f0" stroke-width="1.5"/>
+                <polygon points="570,95 580,100 570,105" fill="#e2e8f0"/>
+                
+                <!-- Flèche de retour en cas d'erreur -->
+                <path d="M 160,80 C 160,50 400,50 400,80" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 2"/>
+                <polygon points="395,75 400,80 395,85" fill="#ef4444"/>
+                <text x="280" y="45" text-anchor="middle" fill="#ef4444" font-size="12">Gestion d'erreur</text>
+              </svg>
+            </div>
+            
+            <h3>Objets actifs et parallélisme</h3>
+            <p>
+              Pour optimiser les performances et permettre des traitements concurrents, le système 
+              implémente un modèle d'objets actifs qui exécutent leurs opérations dans des threads dédiés.
+            </p>
+            
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">ActiveObject.h - Interface pour les objets actifs</span>
+              </div>
+              <pre><code>/**
+ * Interface pour les objets qui s'exécutent dans leur propre thread
+ */
+typedef struct {
+    // Données internes
+    void* internal_data;
+    int is_running;
+    pthread_t thread_id;
+    
+    // File de messages interne
+    message_queue_t message_queue;
+    
+    // Mutex pour la synchronisation
+    pthread_mutex_t mutex;
+    
+    // Fonctions du cycle de vie
+    int (*initialize)(void* self);
+    int (*main_loop)(void* self);
+    int (*process_message)(void* self, const message_t* message);
+    int (*cleanup)(void* self);
+    
+    // Fonctions d'interaction avec l'objet
+    int (*send_message)(void* self, const message_t* message);
+    int (*stop)(void* self);
+} active_object_t;
+
+// Fonctions de gestion du cycle de vie
+int active_object_init(active_object_t* obj, 
+                      int (*initialize)(void*),
+                      int (*main_loop)(void*),
+                      int (*process_message)(void*, const message_t*),
+                      int (*cleanup)(void*));
+
+int active_object_start(active_object_t* obj);
+int active_object_stop(active_object_t* obj);
+int active_object_join(active_object_t* obj);</code></pre>
+            </div>
+            
+            <h2>Persistance des données</h2>
+            <p>
+              Le système utilise différentes stratégies de persistance des données selon les besoins:
+            </p>
+            
+            <div class="prose-challenges">
+              <div class="prose-challenge-item">
+                <h3>Cache en mémoire</h3>
+                <p>
+                  Pour les accès fréquents, un système de cache à plusieurs niveaux est implémenté,
+                  permettant un accès rapide aux données récemment utilisées tout en limitant l'utilisation
+                  de la mémoire.
+                </p>
+              </div>
+              
+              <div class="prose-challenge-item">
+                <h3>Stockage sur disque</h3>
+                <p>
+                  Les données persistantes sont sérialisées et stockées dans des fichiers formatés.
+                  Le système utilise un format binaire propriétaire optimisé pour les performances
+                  de lecture/écriture.
+                </p>
+              </div>
+              
+              <div class="prose-challenge-item">
+                <h3>Synchronisation avec le serveur</h3>
+                <p>
+                  Une stratégie de synchronisation périodique avec le serveur est mise en place,
+                  avec des mécanismes de gestion des conflits et de reprise après erreur.
+                </p>
+              </div>
+            </div>
+            
+            <div class="prose-navigation">
+              <a href="conception-generale.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Conception Générale
+              </a>
+              <a href="implementation.html" class="prose-nav-next">
+                Implémentation <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>

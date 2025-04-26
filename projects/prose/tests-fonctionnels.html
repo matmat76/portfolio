@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Tests Fonctionnels - Matthieu Tremblay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Tests Fonctionnels</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Tests Fonctionnels</span>
+            <span>Validation des exigences avec Squash</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item"
+              >Spécification</a
+            >
+            <a href="conception-generale.html" class="prose-cycle-item"
+              >Conception Générale</a
+            >
+            <a href="conception-detaillee.html" class="prose-cycle-item"
+              >Conception Détaillée</a
+            >
+            <a href="implementation.html" class="prose-cycle-item"
+              >Implémentation</a
+            >
+            <a href="tests-composants.html" class="prose-cycle-item"
+              >Tests Composants</a
+            >
+            <a href="tests-integration.html" class="prose-cycle-item"
+              >Tests Intégration</a
+            >
+            <a href="tests-fonctionnels.html" class="prose-cycle-item active"
+              >Tests Fonctionnels</a
+            >
+            <a href="tests-performances.html" class="prose-cycle-item"
+              >Tests Performances</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Tests fonctionnels: validation des exigences</h2>
+            <p>
+              Les tests fonctionnels jouent un rôle crucial dans le cycle en V,
+              car ils permettent de valider que le système répond aux exigences
+              définies lors de la phase de spécification. Contrairement aux
+              tests unitaires et d'intégration qui se concentrent sur les
+              aspects techniques, les tests fonctionnels vérifient que le
+              système fait ce qu'il est censé faire du point de vue de
+              l'utilisateur final.
+            </p>
+
+            <h3>Approche de test fonctionnel</h3>
+            <p>
+              Notre approche des tests fonctionnels s'est appuyée sur les
+              principes suivants:
+            </p>
+            <ul>
+              <li>Tests basés sur les exigences (requirement-based testing)</li>
+              <li>Scénarios d'utilisation complets (end-to-end)</li>
+              <li>Validation du point de vue de l'utilisateur final</li>
+              <li>Gestion et suivi des cas de test avec Squash TM</li>
+            </ul>
+
+            <h2>Squash TM pour la gestion des tests</h2>
+            <p>
+              Pour gérer efficacement notre campagne de tests fonctionnels, nous
+              avons utilisé Squash TM, un outil open-source de gestion des tests
+              qui permet de structurer, organiser et suivre l'exécution des
+              tests.
+            </p>
+
+            <div class="prose-diagram">
+              <svg width="100%" height="280" viewBox="0 0 800 280">
+                <!-- Logo Squash (schématisé) -->
+                <rect
+                  x="350"
+                  y="20"
+                  width="100"
+                  height="40"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text
+                  x="400"
+                  y="45"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Squash TM
+                </text>
+
+                <!-- Organisation des tests -->
+                <rect
+                  x="100"
+                  y="120"
+                  width="140"
+                  height="60"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text
+                  x="170"
+                  y="145"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Exigences
+                </text>
+                <text
+                  x="170"
+                  y="165"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  Requirements
+                </text>
+
+                <rect
+                  x="330"
+                  y="120"
+                  width="140"
+                  height="60"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text
+                  x="400"
+                  y="145"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Cas de Test
+                </text>
+                <text
+                  x="400"
+                  y="165"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  Test Cases
+                </text>
+
+                <rect
+                  x="560"
+                  y="120"
+                  width="140"
+                  height="60"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text
+                  x="630"
+                  y="145"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Campagnes
+                </text>
+                <text
+                  x="630"
+                  y="165"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  Test Campaigns
+                </text>
+
+                <!-- Exécution -->
+                <rect
+                  x="330"
+                  y="220"
+                  width="140"
+                  height="60"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text
+                  x="400"
+                  y="245"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Exécution
+                </text>
+                <text
+                  x="400"
+                  y="265"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  Test Execution
+                </text>
+
+                <!-- Liens -->
+                <line
+                  x1="170"
+                  y1="120"
+                  x2="365"
+                  y2="60"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                />
+                <line
+                  x1="400"
+                  y1="60"
+                  x2="400"
+                  y2="120"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                />
+                <line
+                  x1="630"
+                  y1="120"
+                  x2="435"
+                  y2="60"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  stroke-dasharray="4,2"
+                />
+                <line
+                  x1="400"
+                  y1="180"
+                  x2="400"
+                  y2="220"
+                  stroke="#60a5fa"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+
+                <!-- Marker pour les flèches -->
+                <defs>
+                  <marker
+                    id="arrow"
+                    markerWidth="10"
+                    markerHeight="10"
+                    refX="9"
+                    refY="3"
+                    orient="auto"
+                    markerUnits="strokeWidth"
+                  >
+                    <path d="M0,0 L0,6 L9,3 z" fill="#60a5fa" />
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+
+            <h3>Avantages de Squash TM</h3>
+            <ul>
+              <li>Traçabilité entre exigences et tests</li>
+              <li>Gestion centralisée des cas de test</li>
+              <li>Organisation en campagnes de test</li>
+              <li>Suivi de l'avancement des tests</li>
+              <li>Génération de rapports détaillés</li>
+            </ul>
+
+            <h2>Cas de tests fonctionnels pour le Catalog</h2>
+
+            <p>
+              Pour le module Catalog, nous avons développé plusieurs cas de test
+              fonctionnels qui vérifient que toutes les exigences sont
+              satisfaites.
+            </p>
+
+            <div class="prose-test-scenarios">
+              <div class="prose-test-scenario">
+                <h4>TC-CAT-001: Configuration et démarrage d'un catalogue</h4>
+                <p>
+                  <strong>Exigence associée:</strong> REQ-CAT-01 - Configuration
+                  des catalogues
+                </p>
+                <p>
+                  <strong>Pré-condition:</strong> Application démarrée,
+                  connexion au serveur établie
+                </p>
+                <p>
+                  <strong>Étapes:</strong>
+                </p>
+                <ol>
+                  <li>
+                    Sélectionner "Configurer un catalogue" dans l'interface de
+                    gestion
+                  </li>
+                  <li>Entrer l'ID du catalogue "42"</li>
+                  <li>Définir la durée d'affichage à 10 secondes</li>
+                  <li>Cliquer sur "Démarrer l'affichage"</li>
+                </ol>
+                <p>
+                  <strong>Résultat attendu:</strong> Le catalogue démarre et
+                  affiche une série de contenus
+                </p>
+                <p>
+                  <strong>Résultat obtenu:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>
+                  TC-CAT-002: Séquence d'affichage et rotation des contenus
+                </h4>
+                <p>
+                  <strong>Exigence associée:</strong> REQ-CAT-02 - Affichage
+                  séquentiel
+                </p>
+                <p>
+                  <strong>Étapes:</strong>
+                </p>
+                <ol>
+                  <li>
+                    Configurer un catalogue avec 3 vidéos, 2 projets et 4
+                    collaborateurs
+                  </li>
+                  <li>Démarrer l'affichage du catalogue</li>
+                  <li>Observer la séquence des contenus pendant 15 minutes</li>
+                </ol>
+                <p>
+                  <strong>Résultat attendu:</strong> Tous les types de contenu
+                  apparaissent de manière équilibrée, chaque contenu apparaît au
+                  moins une fois
+                </p>
+                <p>
+                  <strong>Résultat obtenu:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>TC-CAT-003: Reprise après coupure réseau</h4>
+                <p>
+                  <strong>Exigence associée:</strong> REQ-CAT-05 - Robustesse
+                </p>
+                <p>
+                  <strong>Étapes:</strong>
+                </p>
+                <ol>
+                  <li>Démarrer l'affichage d'un catalogue</li>
+                  <li>Déconnecter le réseau pendant l'affichage</li>
+                  <li>Attendre 5 minutes</li>
+                  <li>Reconnecter le réseau</li>
+                </ol>
+                <p>
+                  <strong>Résultat attendu:</strong> Le système continue
+                  d'afficher les contenus déjà chargés pendant la coupure, puis
+                  récupère les mises à jour après reconnexion
+                </p>
+                <p>
+                  <strong>Résultat obtenu:</strong>
+                  <span class="prose-test-warning">Partiel</span> - Délai de
+                  récupération trop long (> 2 minutes)
+                </p>
+              </div>
+            </div>
+
+            <h2>Campagne de tests fonctionnels</h2>
+            <p>
+              La campagne de tests fonctionnels a couvert l'ensemble des
+              exigences du système et a permis de valider le fonctionnement
+              global du projet ProSE.
+            </p>
+
+            <div class="prose-coverage">
+              <div class="prose-coverage-bar">
+                <div class="prose-coverage-fill" style="width: 95%">95%</div>
+              </div>
+              <p>
+                Couverture des exigences: 95%. Toutes les exigences critiques
+                ont été validées, avec quelques ajustements mineurs nécessaires
+                pour certaines fonctionnalités secondaires.
+              </p>
+            </div>
+
+            <h3>Matrice de traçabilité</h3>
+            <p>
+              La matrice de traçabilité ci-dessous montre la correspondance
+              entre les exigences définies dans la phase de spécification et les
+              cas de test fonctionnels associés.
+            </p>
+
+            <table class="prose-table">
+              <thead>
+                <tr>
+                  <th>Exigence</th>
+                  <th>Description</th>
+                  <th>Cas de test</th>
+                  <th>Statut</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>REQ-CAT-01</td>
+                  <td>Configuration des catalogues</td>
+                  <td>TC-CAT-001</td>
+                  <td>✅ Validé</td>
+                </tr>
+                <tr>
+                  <td>REQ-CAT-02</td>
+                  <td>Affichage séquentiel</td>
+                  <td>TC-CAT-002</td>
+                  <td>✅ Validé</td>
+                </tr>
+                <tr>
+                  <td>REQ-CAT-03</td>
+                  <td>Contenu dynamique</td>
+                  <td>TC-CAT-004</td>
+                  <td>✅ Validé</td>
+                </tr>
+                <tr>
+                  <td>REQ-CAT-04</td>
+                  <td>Personnalisation de la durée</td>
+                  <td>TC-CAT-005</td>
+                  <td>✅ Validé</td>
+                </tr>
+                <tr>
+                  <td>REQ-CAT-05</td>
+                  <td>Robustesse</td>
+                  <td>TC-CAT-003</td>
+                  <td>⚠️ Partiel</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <h2>Résultats et adaptations</h2>
+            <p>
+              Les tests fonctionnels ont permis d'identifier certains points
+              d'amélioration:
+            </p>
+            <ul>
+              <li>
+                <strong>Temps de récupération après déconnexion</strong>:
+                L'algorithme de détection et de reprise a été optimisé pour
+                réduire le temps de récupération.
+              </li>
+              <li>
+                <strong>Équilibrage des types de contenu</strong>: L'algorithme
+                de sélection a été affiné pour assurer une meilleure
+                distribution des différents types.
+              </li>
+              <li>
+                <strong>Transitions entre contenus</strong>: Les transitions ont
+                été améliorées pour apparaître plus fluides, particulièrement
+                entre différents types de contenu.
+              </li>
+            </ul>
+
+            <div class="prose-navigation">
+              <a href="tests-integration.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Tests Intégration
+              </a>
+              <a href="tests-performances.html" class="prose-nav-next">
+                Tests Performances <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>
