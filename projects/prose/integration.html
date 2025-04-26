@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Intégration - Matthieu Tremblay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Intégration</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Intégration</span>
+            <span>Assemblage et validation système</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item"
+              >Spécification</a
+            >
+            <a href="conception.html" class="prose-cycle-item">Conception</a>
+            <a href="implementation.html" class="prose-cycle-item"
+              >Implémentation</a
+            >
+            <a href="tests.html" class="prose-cycle-item">Tests</a>
+            <a href="integration.html" class="prose-cycle-item active"
+              >Intégration</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Stratégie d'intégration</h2>
+            <p>
+              La phase d'intégration du projet ProSE a constitué une étape
+              cruciale dans la validation du système complet. Nous avons adopté
+              une approche d'intégration progressive pour assembler les
+              différents composants et valider leur fonctionnement en synergie.
+            </p>
+
+            <h3>Intégration ascendante</h3>
+            <p>
+              Nous avons choisi une stratégie d'intégration ascendante, en
+              commençant par les composants de bas niveau comme le module
+              Catalog, pour progressivement intégrer les couches supérieures
+              jusqu'au système complet.
+            </p>
+
+            <div class="prose-diagram">
+              <!-- Diagramme d'intégration ascendante -->
+              <svg width="100%" height="350" viewBox="0 0 800 350">
+                <!-- Niveau 1 (bas) - Composants individuels -->
+                <rect
+                  x="100"
+                  y="270"
+                  width="100"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="150" y="300" text-anchor="middle" fill="#e2e8f0">
+                  Widget
+                </text>
+
+                <rect
+                  x="250"
+                  y="270"
+                  width="100"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#60a5fa"
+                  stroke-width="2"
+                />
+                <text x="300" y="300" text-anchor="middle" fill="#e2e8f0">
+                  Catalog
+                </text>
+
+                <rect
+                  x="400"
+                  y="270"
+                  width="100"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="450" y="300" text-anchor="middle" fill="#e2e8f0">
+                  HTTP Client
+                </text>
+
+                <rect
+                  x="550"
+                  y="270"
+                  width="100"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="600" y="300" text-anchor="middle" fill="#e2e8f0">
+                  Config
+                </text>
+
+                <!-- Niveau 2 - Modules assemblés -->
+                <rect
+                  x="175"
+                  y="170"
+                  width="200"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="275" y="200" text-anchor="middle" fill="#e2e8f0">
+                  Widget + Catalog
+                </text>
+
+                <rect
+                  x="425"
+                  y="170"
+                  width="200"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="525" y="200" text-anchor="middle" fill="#e2e8f0">
+                  HTTP + Config
+                </text>
+
+                <!-- Niveau 3 - Système Fora -->
+                <rect
+                  x="300"
+                  y="70"
+                  width="200"
+                  height="50"
+                  rx="5"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="400" y="100" text-anchor="middle" fill="#e2e8f0">
+                  Système Fora
+                </text>
+
+                <!-- Flèches d'intégration -->
+                <line
+                  x1="150"
+                  y1="270"
+                  x2="225"
+                  y2="220"
+                  stroke="#e2e8f0"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+                <line
+                  x1="300"
+                  y1="270"
+                  x2="275"
+                  y2="220"
+                  stroke="#e2e8f0"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+
+                <line
+                  x1="450"
+                  y1="270"
+                  x2="475"
+                  y2="220"
+                  stroke="#e2e8f0"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+                <line
+                  x1="600"
+                  y1="270"
+                  x2="525"
+                  y2="220"
+                  stroke="#e2e8f0"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+
+                <line
+                  x1="275"
+                  y1="170"
+                  x2="350"
+                  y2="120"
+                  stroke="#e2e8f0"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+                <line
+                  x1="525"
+                  y1="170"
+                  x2="450"
+                  y2="120"
+                  stroke="#e2e8f0"
+                  stroke-width="1.5"
+                  marker-end="url(#arrow)"
+                />
+
+                <!-- Étiquettes d'étapes -->
+                <rect
+                  x="50"
+                  y="270"
+                  width="30"
+                  height="20"
+                  rx="5"
+                  fill="#3b82f6"
+                />
+                <text
+                  x="65"
+                  y="285"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  1
+                </text>
+
+                <rect
+                  x="50"
+                  y="170"
+                  width="30"
+                  height="20"
+                  rx="5"
+                  fill="#3b82f6"
+                />
+                <text
+                  x="65"
+                  y="185"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  2
+                </text>
+
+                <rect
+                  x="50"
+                  y="70"
+                  width="30"
+                  height="20"
+                  rx="5"
+                  fill="#3b82f6"
+                />
+                <text
+                  x="65"
+                  y="85"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-size="12"
+                >
+                  3
+                </text>
+
+                <!-- Titre -->
+                <text
+                  x="400"
+                  y="30"
+                  text-anchor="middle"
+                  fill="#e2e8f0"
+                  font-weight="bold"
+                >
+                  Stratégie d'intégration ascendante
+                </text>
+
+                <!-- Marker definition for arrows -->
+                <defs>
+                  <marker
+                    id="arrow"
+                    markerWidth="10"
+                    markerHeight="10"
+                    refX="9"
+                    refY="3"
+                    orient="auto"
+                    markerUnits="strokeWidth"
+                  >
+                    <path d="M0,0 L0,6 L9,3 z" fill="#e2e8f0" />
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+
+            <h2>Intégration du module Catalog</h2>
+            <p>
+              L'intégration du module Catalog au sein du système Fora a
+              nécessité plusieurs étapes clés :
+            </p>
+
+            <h3>1. Intégration avec le gestionnaire de widgets</h3>
+            <p>
+              La première étape consistait à intégrer le Catalog avec le module
+              de gestion des widgets pour permettre l'affichage combiné des deux
+              types de contenus sur l'interface.
+            </p>
+
+            <div class="prose-integration-steps">
+              <div class="prose-integration-step">
+                <i class="ri-checkbox-circle-line"></i>
+                <div>
+                  <h4>Définition de l'interface de communication</h4>
+                  <p>
+                    Implémentation des callbacks et des événements entre les
+                    modules
+                  </p>
+                </div>
+              </div>
+
+              <div class="prose-integration-step">
+                <i class="ri-checkbox-circle-line"></i>
+                <div>
+                  <h4>Synchronisation des cycles d'affichage</h4>
+                  <p>
+                    Coordination des timers et des transitions entre widgets et
+                    contenus de catalogue
+                  </p>
+                </div>
+              </div>
+
+              <div class="prose-integration-step">
+                <i class="ri-checkbox-circle-line"></i>
+                <div>
+                  <h4>Tests d'intégration spécifiques</h4>
+                  <p>
+                    Validation des interactions entre les deux modules et
+                    résolution des conflits
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h3>2. Intégration avec le client HTTP</h3>
+            <p>
+              L'intégration avec le client HTTP était essentielle pour permettre
+              au Catalog de communiquer avec le serveur d'entreprise et
+              récupérer les données à afficher.
+            </p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">Intégration avec le client HTTP</span>
+              </div>
+              <pre><code>// Exemple d'intégration avec le client HTTP
+int catalog_ask_catalog_data(catalogue_t* catalogue, const server_info_t* server) {
+    response_t response;
+    char url[MAX_URL_LENGTH];
+    
+    // Construction de l'URL
+    snprintf(url, MAX_URL_LENGTH, "/api/catalogs/%d", catalogue->id);
+    
+    // Initialisation de la réponse
+    init_response(&response);
+    
+    // Appel au client HTTP
+    int result = http_get(server, url, &response);
+    
+    if (result == FORA_SUCCESS && response.status_code == 200) {
+        // Parsing de la réponse JSON et mise à jour du catalogue
+        result = parse_catalog_response(catalogue, &response);
+    } else {
+        fprintf(stderr, "Erreur lors de la récupération du catalogue: %d\n", 
+                response.status_code);
+        result = FORA_ERROR_NETWORK;
+    }
+    
+    // Libération des ressources
+    free_response(&response);
+    
+    return result;
+}</code></pre>
+            </div>
+
+            <h3>3. Intégration au système principal</h3>
+            <p>
+              La dernière étape consistait à intégrer le module Catalog au
+              système Fora complet, y compris la gestion de la configuration et
+              l'interface utilisateur.
+            </p>
+
+            <h2>Tests d'intégration</h2>
+            <p>
+              Les tests d'intégration ont été essentiels pour valider le
+              fonctionnement harmonieux des différents composants assemblés.
+            </p>
+
+            <h3>Méthodes de test</h3>
+            <ul>
+              <li>
+                <strong>Tests bout en bout</strong> : Validation du parcours
+                complet, de la configuration à l'affichage
+              </li>
+              <li>
+                <strong>Tests de régression</strong> : Vérification que
+                l'intégration n'a pas introduit de régressions
+              </li>
+              <li>
+                <strong>Tests de stress</strong> : Évaluation du comportement
+                sous charge et validation de la stabilité
+              </li>
+            </ul>
+
+            <h3>Scénarios de test principaux</h3>
+            <div class="prose-test-scenarios">
+              <div class="prose-test-scenario">
+                <h4>
+                  Scénario 1: Configuration et affichage d'un nouveau catalogue
+                </h4>
+                <p>
+                  Ce scénario teste le parcours complet depuis la configuration
+                  d'un nouveau catalogue dans FortilApp jusqu'à l'affichage des
+                  contenus sur l'écran.
+                </p>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>Scénario 2: Changement dynamique de catalogue</h4>
+                <p>
+                  Ce scénario teste la capacité du système à basculer d'un
+                  catalogue à un autre sans redémarrage ni interruption visible.
+                </p>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-success">Succès</span>
+                </p>
+              </div>
+
+              <div class="prose-test-scenario">
+                <h4>Scénario 3: Récupération après erreur réseau</h4>
+                <p>
+                  Ce scénario vérifie le comportement du système en cas de perte
+                  de connexion avec le serveur et sa capacité à reprendre
+                  l'affichage une fois la connexion rétablie.
+                </p>
+                <p>
+                  <strong>Résultat:</strong>
+                  <span class="prose-test-warning">Problèmes mineurs</span> -
+                  Temps de récupération parfois long
+                </p>
+              </div>
+            </div>
+
+            <h2>Résultats et bilan</h2>
+            <p>
+              L'intégration du module Catalog au système Fora a été globalement
+              réussie, avec quelques ajustements nécessaires pour optimiser
+              certains aspects :
+            </p>
+
+            <div class="prose-results">
+              <div class="prose-result-item">
+                <h3>Points forts</h3>
+                <ul>
+                  <li>Architecture modulaire facilitant l'intégration</li>
+                  <li>Interface bien définie et respectée</li>
+                  <li>Gestion robuste des erreurs</li>
+                  <li>
+                    Bonnes performances même avec des catalogues volumineux
+                  </li>
+                </ul>
+              </div>
+
+              <div class="prose-result-item">
+                <h3>Points d'amélioration</h3>
+                <ul>
+                  <li>
+                    Optimisation du temps de récupération après erreur réseau
+                  </li>
+                  <li>
+                    Réduction de l'utilisation mémoire lors du chargement de
+                    vidéos volumineuses
+                  </li>
+                  <li>
+                    Documentation plus détaillée de l'API pour faciliter la
+                    maintenance
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <h2>Conclusion</h2>
+            <p>
+              Le projet ProSE m'a permis de mettre en pratique une méthodologie
+              de développement rigoureuse suivant le cycle en V, de la
+              spécification à l'intégration. L'implémentation du module Catalog
+              a constitué un défi technique intéressant, notamment pour la
+              gestion des différents types de contenu et la communication avec
+              le serveur.
+            </p>
+
+            <p>
+              Les principes SOLID appliqués et la modélisation UML ont
+              grandement facilité le développement, les tests et l'intégration
+              du module. Cette expérience m'a permis de renforcer mes
+              compétences en développement C, en architecture logicielle et en
+              méthodologie de projet.
+            </p>
+
+            <div class="prose-navigation">
+              <a href="tests.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Tests
+              </a>
+              <a href="index.html" class="prose-nav-next">
+                Retour à l'accueil <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>

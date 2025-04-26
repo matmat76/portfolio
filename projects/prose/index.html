@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projet ProSE - Matthieu Tremblay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header avec navigation -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Introduction avec Three.js en arrière-plan -->
+      <section class="prose-hero-section">
+        <canvas id="prose-canvas"></canvas>
+        <div class="container">
+          <div class="prose-hero-content">
+            <div class="badge">Projet académique | S8 - 2023</div>
+            <h1 class="prose-title">
+              <span class="gradient-text">ProSE</span>
+              <span>Système d'Affichage Dynamique</span>
+            </h1>
+            <p class="prose-description">
+              Conception et développement d'un système d'affichage pour
+              moniteurs d'entreprise avec architecture SOLID et modélisation UML
+              complète.
+            </p>
+            <div class="hero-cta">
+              <a href="#prose-overview" class="btn btn-primary"
+                >Découvrir le projet</a
+              >
+              <a href="../../index.html#projets" class="btn btn-outline"
+                >Autres projets</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Visualisation du cycle en V -->
+      <section id="prose-vcycle" class="prose-cycle-section">
+        <div class="container">
+          <h2 class="section-title">Méthodologie Cycle en V</h2>
+          <p class="prose-cycle-intro">
+            Ce projet a été développé selon la méthodologie du cycle en V,
+            permettant une traçabilité complète des exigences et une validation
+            rigoureuse à chaque étape.
+          </p>
+          <div class="v-cycle-container">
+            <div id="v-cycle-canvas-container">
+              <canvas id="v-cycle-canvas"></canvas>
+            </div>
+            <div class="v-cycle-legend">
+              <p>
+                Explorez les différentes phases en interagissant avec le modèle
+                3D
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vue d'ensemble du projet -->
+      <section id="prose-overview" class="prose-overview-section">
+        <div class="container">
+          <h2 class="section-title">Présentation du Projet</h2>
+          <div class="prose-description-content">
+            <p>
+              Le projet <strong>ProSE</strong> (Projet Système Embarqué)
+              consiste à développer un système d'affichage dynamique pour
+              améliorer l'intégration des collaborateurs dans l'entreprise.
+            </p>
+            <p>
+              Il permet de paramétrer l'affichage de moniteurs via une
+              application Android (FortilApp) qui communique avec un système
+              embarqué (Fora) développé en C. Ce dernier gère l'affichage de
+              widgets et de catalogues personnalisés sur les moniteurs de
+              l'entreprise.
+            </p>
+          </div>
+
+          <div class="prose-cards">
+            <div class="prose-card">
+              <i class="ri-layout-masonry-line"></i>
+              <h3>Architecture</h3>
+              <p>
+                Communication sécurisée (Protobuf) entre FortilApp (Android) et
+                Fora (C), requêtes HTTP avec le serveur de l'entreprise.
+              </p>
+            </div>
+            <div class="prose-card">
+              <i class="ri-dashboard-line"></i>
+              <h3>Widgets & Catalogues</h3>
+              <p>
+                7 widgets personnalisables (météo, événements, anniversaires,
+                etc.) et catalogues de contenu (fiches collaborateurs, projets,
+                vidéos).
+              </p>
+            </div>
+            <div class="prose-card">
+              <i class="ri-code-box-line"></i>
+              <h3>Ma contribution</h3>
+              <p>
+                Développement de l'objet Catalog en C avec architecture SOLID,
+                modélisation UML complète et tests avec JMeter.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Technologies utilisées -->
+      <section class="prose-skills-section">
+        <div class="container">
+          <h2 class="section-title">Technologies & Méthodes</h2>
+          <div class="prose-skills-grid">
+            <div class="prose-skill-tag">C</div>
+            <div class="prose-skill-tag">Architecture SOLID</div>
+            <div class="prose-skill-tag">UML</div>
+            <div class="prose-skill-tag">Protobuf</div>
+            <div class="prose-skill-tag">API REST</div>
+            <div class="prose-skill-tag">HTTP</div>
+            <div class="prose-skill-tag">JMeter</div>
+            <div class="prose-skill-tag">JSON</div>
+            <div class="prose-skill-tag">Cycle en V</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Navigation vers les pages du cycle en V -->
+      <section class="prose-pages-nav">
+        <div class="container">
+          <h2 class="section-title">Explorer le Développement</h2>
+          <div class="prose-pages-grid">
+            <a href="specification.html" class="prose-page-card">
+              <div class="prose-page-icon">
+                <i class="ri-file-list-3-line"></i>
+              </div>
+              <h3>Spécification</h3>
+              <p>Analyse des besoins et cas d'utilisation</p>
+              <span class="prose-page-link"
+                >Découvrir <i class="ri-arrow-right-line"></i
+              ></span>
+            </a>
+
+            <a href="conception.html" class="prose-page-card">
+              <div class="prose-page-icon"><i class="ri-flow-chart"></i></div>
+              <h3>Conception</h3>
+              <p>Diagrammes UML et architecture</p>
+              <span class="prose-page-link"
+                >Explorer <i class="ri-arrow-right-line"></i
+              ></span>
+            </a>
+
+            <a href="implementation.html" class="prose-page-card highlight">
+              <div class="prose-page-icon">
+                <i class="ri-code-s-slash-line"></i>
+              </div>
+              <h3>Implémentation</h3>
+              <p>Développement de l'objet Catalog</p>
+              <span class="prose-page-link"
+                >Voir le code <i class="ri-arrow-right-line"></i
+              ></span>
+            </a>
+
+            <a href="tests.html" class="prose-page-card">
+              <div class="prose-page-icon">
+                <i class="ri-test-tube-line"></i>
+              </div>
+              <h3>Tests</h3>
+              <p>Tests unitaires et de performance</p>
+              <span class="prose-page-link"
+                >Analyser <i class="ri-arrow-right-line"></i
+              ></span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+    <script src="../../js/three-background.js"></script>
+    <script src="../../js/prose-cycle-viz.js"></script>
+  </body>
+</html>

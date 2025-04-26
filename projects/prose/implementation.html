@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Implémentation - Matthieu Tremblay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Implémentation</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Implémentation</span>
+            <span>Développement de l'objet Catalog</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item"
+              >Spécification</a
+            >
+            <a href="conception.html" class="prose-cycle-item">Conception</a>
+            <a href="implementation.html" class="prose-cycle-item active"
+              >Implémentation</a
+            >
+            <a href="tests.html" class="prose-cycle-item">Tests</a>
+            <a href="integration.html" class="prose-cycle-item">Intégration</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Vue d'ensemble de l'objet Catalog</h2>
+            <p>
+              L'objet <code>Catalog</code> est un composant clé du système Fora,
+              responsable de la gestion et de l'affichage des différents types
+              de contenu : vidéos, projets et fiches collaborateurs. Son
+              implémentation suit les principes SOLID pour garantir un code
+              modulaire, extensible et facile à maintenir.
+            </p>
+
+            <h3>Responsabilités du Catalog</h3>
+            <ul>
+              <li>Charger les données de catalogues depuis le serveur</li>
+              <li>
+                Gérer les différents types de contenus (videos, projets,
+                collaborateurs)
+              </li>
+              <li>Contrôler la séquence d'affichage des diapositives</li>
+              <li>Gérer les durées d'affichage pour chaque type de contenu</li>
+              <li>Notifier l'interface utilisateur des changements d'état</li>
+            </ul>
+
+            <h2>Structure de données</h2>
+            <p>
+              L'architecture de l'objet Catalog est basée sur plusieurs
+              structures de données interdépendantes, définies dans
+              <code>catalog.h</code> :
+            </p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">catalog.h - Types de données</span>
+              </div>
+              <pre><code>// Types d'éléments à afficher
+typedef enum {
+    SLIDE_TYPE_VIDEO,
+    SLIDE_TYPE_PROJECT,
+    SLIDE_TYPE_COLLABORATOR
+} SlideType;
+
+// État de la machine à états du catalogue
+typedef enum {
+    CATALOG_LOADING,    // En cours de chargement des données
+    CATALOG_READY,      // Prêt à démarrer l'affichage
+    CATALOG_DISPLAYING  // En cours d'affichage des éléments
+} CatalogState;
+
+// Structure pour stocker les informations d'un collaborateur
+typedef struct {
+    int id;
+    char nom[MAX_PATH_LENGTH];
+    char date_naissance[MAX_PATH_LENGTH];
+    char poste[MAX_PATH_LENGTH];
+    char description_poste[MAX_PATH_LENGTH];
+    char outils[MAX_PATH_LENGTH];
+    char responsabilites[MAX_PATH_LENGTH];
+    char chemin_fichier[MAX_PATH_LENGTH];
+} collaborateur_t;
+
+// Structure pour stocker les informations d'un projet
+typedef struct {
+    int id;
+    char temps[MAX_PATH_LENGTH];
+    char lieu[MAX_PATH_LENGTH];
+    char equipe[MAX_PATH_LENGTH];
+    char description[MAX_PATH_LENGTH];
+    char realisation[MAX_PATH_LENGTH];
+    char livrables[MAX_PATH_LENGTH];
+    char outils[MAX_PATH_LENGTH];
+} projet_t;
+
+// Structure pour stocker les informations d'une vidéo
+typedef struct {
+    int id;
+    char titre[MAX_PATH_LENGTH];
+    char description[MAX_PATH_LENGTH];
+    int taille_fichier;
+    char chemin_fichier[MAX_PATH_LENGTH];
+    int duration;      // Durée de la vidéo en secondes
+} video_t;</code></pre>
+            </div>
+
+            <h2>Structure principale du Catalog</h2>
+            <p>
+              Le catalogue lui-même est représenté par une structure complexe
+              qui maintient l'état courant de l'affichage et les références vers
+              tous les éléments :
+            </p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">catalog.h - Structure principale</span>
+              </div>
+              <pre><code>// Structure pour stocker un catalogue complet
+typedef struct {
+    int id;                        // ID du catalogue
+    int duration;                  // Durée d'affichage par défaut (en secondes)
+    int wait_time;                 // Temps restant pour l'élément actuel
+    
+    SlideType next_type;           // Type de la prochaine diapositive
+    int current_project_index;     // Index du projet en cours d'affichage
+    int current_video_index;       // Index de la vidéo en cours d'affichage
+    int current_collaborator_index;// Index du collaborateur en cours d'affichage
+    
+    api_catalog_t api_catalog;     // Structure des IDs du catalogue
+    
+    collaborateur_t* collaborateurs;    // Liste des collaborateurs
+    int nb_collaborateurs;              // Nombre de collaborateurs
+    projet_t* projets;                  // Liste des projets
+    int nb_projets;                     // Nombre de projets
+    video_t* videos;                    // Liste des vidéos
+    int nb_videos;                      // Nombre de vidéos
+    
+    // Pointeurs vers les éléments actuellement affichés
+    collaborateur_t* current_collaborator;
+    projet_t* current_project;
+    video_t* current_video;
+    
+    CatalogState state;            // État actuel du catalogue
+    
+    // Callback pour les notifications
+    catalog_update_callback_t update_callback;
+    void* callback_user_data;
+} catalogue_t;</code></pre>
+            </div>
+
+            <h2>Interface publique (API)</h2>
+            <p>
+              L'interface de l'objet Catalog expose plusieurs fonctions qui
+              permettent d'interagir avec lui. Voici les principales fonctions
+              publiques :
+            </p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title">catalog.h - API Publique</span>
+              </div>
+              <pre><code>// Initialiser un catalogue vide
+void catalog_init(catalogue_t* catalogue, int id);
+
+// Libérer les ressources d'un catalogue
+void catalog_free(catalogue_t* catalogue);
+
+// Démarrer un catalogue avec un ID et une durée spécifiés
+int catalog_ask_start_catalog(catalogue_t* catalogue, int id_catalog, int duration);
+
+// Mettre à jour le catalogue (machine à états)
+void catalog_update(catalogue_t* catalogue, float delta_time);
+
+// Obtenir le type de la prochaine diapositive
+SlideType catalog_get_next_slide_type(catalogue_t* catalogue);
+
+// Afficher un projet
+void catalog_show_project(catalogue_t* catalogue, projet_t* project);
+
+// Afficher une vidéo
+void catalog_show_video(catalogue_t* catalogue, video_t* video);
+
+// Afficher un collaborateur
+void catalog_show_collaborator(catalogue_t* catalogue, collaborateur_t* collaborator);
+
+// Configurer le callback de mise à jour
+void catalog_set_update_callback(catalogue_t* catalogue, catalog_update_callback_t callback, void* user_data);</code></pre>
+            </div>
+
+            <h2>Implémentation de la machine à états</h2>
+            <p>
+              L'une des parties les plus complexes de l'objet Catalog est sa
+              machine à états qui gère le cycle de vie et la transition entre
+              les différents types de contenu. Voici un aperçu simplifié de son
+              fonctionnement :
+            </p>
+
+            <p>
+              La fonction <code>catalog_update</code> est appelée périodiquement
+              par la boucle principale et met à jour l'état du catalogue en
+              fonction du temps écoulé. Elle gère la transition entre les
+              différents états et le choix du prochain élément à afficher.
+            </p>
+
+            <div class="code-block">
+              <div class="code-header">
+                <span class="code-title"
+                  >Pseudo-code de la machine à états</span
+                >
+              </div>
+              <pre><code>void catalog_update(catalogue_t* catalogue, float delta_time) {
+    // Mise à jour de l'état selon la machine à états
+    switch (catalogue->state) {
+        case CATALOG_LOADING:
+            // Vérifier si toutes les données sont chargées
+            if (all_data_loaded(catalogue)) {
+                catalogue->state = CATALOG_READY;
+            }
+            break;
+            
+        case CATALOG_READY:
+            // Préparer la première diapositive
+            catalogue->next_type = catalog_get_next_slide_type(catalogue);
+            
+            // Afficher le premier élément selon son type
+            switch (catalogue->next_type) {
+                case SLIDE_TYPE_VIDEO:
+                    catalog_show_video(catalogue, catalogue->videos);
+                    break;
+                case SLIDE_TYPE_PROJECT:
+                    catalog_show_project(catalogue, catalogue->projets);
+                    break;
+                case SLIDE_TYPE_COLLABORATOR:
+                    catalog_show_collaborator(catalogue, catalogue->collaborateurs);
+                    break;
+            }
+            
+            catalogue->state = CATALOG_DISPLAYING;
+            break;
+            
+        case CATALOG_DISPLAYING:
+            // Décrémenter le temps d'attente
+            catalogue->wait_time -= delta_time;
+            
+            // Si le temps est écoulé, passer à la diapositive suivante
+            if (catalogue->wait_time <= 0) {
+                // Déterminer le type de la prochaine diapositive
+                catalogue->next_type = catalog_get_next_slide_type(catalogue);
+                
+                // Afficher le prochain élément
+                // [code similaire à l'état CATALOG_READY]
+                
+                // Réinitialiser le temps d'attente
+                catalogue->wait_time = catalogue->duration * 1000; // Convertir en ms
+            }
+            break;
+    }
+}</code></pre>
+            </div>
+
+            <h2>Défis techniques rencontrés</h2>
+
+            <div class="prose-challenges">
+              <div class="prose-challenge-item">
+                <h3>Gestion de la mémoire</h3>
+                <p>
+                  L'une des difficultés majeures a été de gérer correctement la
+                  mémoire des différentes structures de données, en particulier
+                  lors du chargement et de la libération des ressources. Pour
+                  résoudre ce problème, j'ai implémenté des mécanismes stricts
+                  d'allocation et de libération, avec des fonctions dédiées
+                  comme <code>catalog_free</code>.
+                </p>
+              </div>
+
+              <div class="prose-challenge-item">
+                <h3>Synchronisation des données</h3>
+                <p>
+                  La synchronisation des données entre le serveur et
+                  l'application a nécessité un système robuste de requêtes HTTP
+                  asynchrones. J'ai implémenté un mécanisme de callback qui
+                  permet de notifier l'interface utilisateur lorsque les données
+                  sont disponibles ou mises à jour.
+                </p>
+              </div>
+
+              <div class="prose-challenge-item">
+                <h3>Algorithme de rotation des contenus</h3>
+                <p>
+                  J'ai dû concevoir un algorithme équitable pour alterner entre
+                  les différents types de contenu, en tenant compte de leur
+                  nombre et de leur importance. La solution a été d'implémenter
+                  un système de pondération permettant d'équilibrer l'affichage
+                  des vidéos, projets et collaborateurs.
+                </p>
+              </div>
+            </div>
+
+            <h2>Principes SOLID appliqués</h2>
+            <p>L'implémentation du Catalog respecte les principes SOLID :</p>
+
+            <ul>
+              <li>
+                <strong>S</strong> (Responsabilité unique) : Chaque fonction et
+                structure a une responsabilité clairement définie.
+              </li>
+              <li>
+                <strong>O</strong> (Ouvert/fermé) : L'architecture permet
+                d'ajouter de nouveaux types de contenu sans modifier le code
+                existant.
+              </li>
+              <li>
+                <strong>L</strong> (Substitution de Liskov) : Les différents
+                types de contenu sont traités de manière uniforme.
+              </li>
+              <li>
+                <strong>I</strong> (Ségrégation des interfaces) : Les fonctions
+                sont groupées selon leur usage.
+              </li>
+              <li>
+                <strong>D</strong> (Inversion des dépendances) : Le système de
+                callback permet de découpler l'objet Catalog de l'interface
+                utilisateur.
+              </li>
+            </ul>
+
+            <div class="prose-navigation">
+              <a href="conception.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Conception
+              </a>
+              <a href="tests.html" class="prose-nav-next">
+                Tests <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>

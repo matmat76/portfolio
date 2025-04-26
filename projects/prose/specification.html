@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ProSE - Spécification - Matthieu Tremblay</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Remix Icon -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../../css/main.css" />
+    <link rel="stylesheet" href="../../css/dark-theme.css" />
+    <link rel="stylesheet" href="../../css/animations.css" />
+    <link rel="stylesheet" href="../../css/components/header.css" />
+    <link rel="stylesheet" href="../../css/prose.css" />
+  </head>
+  <body class="dark-theme">
+    <!-- Header -->
+    <header id="main-header">
+      <div class="container">
+        <a href="../../index.html" class="logo">MT</a>
+        <nav class="main-nav">
+          <a href="../../index.html#accueil" class="nav-link">Accueil</a>
+          <a href="../../index.html#parcours" class="nav-link">Parcours</a>
+          <a href="../../index.html#projets" class="nav-link">Projets</a>
+          <a href="../../index.html#competences" class="nav-link"
+            >Compétences</a
+          >
+          <a href="../../index.html#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero section avec titre de la page -->
+      <section class="prose-page-hero">
+        <div class="container">
+          <div class="prose-breadcrumb">
+            <a href="index.html">ProSE</a> &gt; <span>Spécification</span>
+          </div>
+          <h1 class="prose-page-title">
+            <span class="gradient-text">Spécification</span>
+            <span>Analyse des besoins et cas d'utilisation</span>
+          </h1>
+        </div>
+      </section>
+
+      <!-- Navigation du cycle en V -->
+      <section class="prose-mini-cycle">
+        <div class="container">
+          <div class="prose-cycle-nav">
+            <a href="specification.html" class="prose-cycle-item active"
+              >Spécification</a
+            >
+            <a href="conception.html" class="prose-cycle-item">Conception</a>
+            <a href="implementation.html" class="prose-cycle-item"
+              >Implémentation</a
+            >
+            <a href="tests.html" class="prose-cycle-item">Tests</a>
+            <a href="integration.html" class="prose-cycle-item">Intégration</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contenu principal -->
+      <section class="prose-content-section">
+        <div class="container">
+          <div class="prose-content">
+            <h2>Analyse des besoins</h2>
+            <p>
+              La phase de spécification du projet ProSE a débuté par une analyse
+              approfondie des besoins de l'entreprise concernant l'affichage
+              dynamique et l'intégration des collaborateurs. Cette analyse a
+              permis d'identifier les principales fonctionnalités à implémenter.
+            </p>
+
+            <h3>Besoins fonctionnels</h3>
+            <div class="prose-requirements">
+              <div class="prose-requirement-item">
+                <h4>Configuration des moniteurs</h4>
+                <p>
+                  Permettre aux administrateurs de configurer à distance les
+                  paramètres d'affichage de chaque moniteur via une application
+                  Android (FortilApp).
+                </p>
+              </div>
+
+              <div class="prose-requirement-item">
+                <h4>Widgets personnalisables</h4>
+                <p>
+                  Offrir un ensemble de widgets configurables pour afficher des
+                  informations pertinentes (météo, événements, anniversaires,
+                  date, disponibilité des salles, actualités, transports).
+                </p>
+              </div>
+
+              <div class="prose-requirement-item">
+                <h4>Catalogues de contenu</h4>
+                <p>
+                  Permettre l'affichage séquentiel de trois types de contenus :
+                  fiches collaborateurs, fiches projets et vidéos d'entreprise.
+                </p>
+              </div>
+
+              <div class="prose-requirement-item">
+                <h4>Synchronisation des données</h4>
+                <p>
+                  Assurer une communication fiable et sécurisée entre
+                  l'application Android (FortilApp), le système d'affichage
+                  (Fora) et le serveur de l'entreprise.
+                </p>
+              </div>
+            </div>
+
+            <h3>Besoins non fonctionnels</h3>
+            <ul>
+              <li>
+                <strong>Performance</strong> : Temps de réponse rapide et
+                gestion efficace des ressources
+              </li>
+              <li>
+                <strong>Sécurité</strong> : Communication sécurisée via Protocol
+                Buffers (protobuf)
+              </li>
+              <li>
+                <strong>Fiabilité</strong> : Système stable avec gestion des
+                erreurs robuste
+              </li>
+              <li>
+                <strong>Maintenabilité</strong> : Architecture modulaire suivant
+                les principes SOLID
+              </li>
+              <li>
+                <strong>Extensibilité</strong> : Possibilité d'ajouter
+                facilement de nouveaux types de widgets ou de contenus
+              </li>
+            </ul>
+
+            <h2>Cas d'utilisation</h2>
+            <p>
+              L'analyse des besoins a permis d'identifier les principaux cas
+              d'utilisation du système, que nous avons formalisés selon la
+              méthode UML.
+            </p>
+
+            <h3>Acteurs principaux</h3>
+            <ul>
+              <li>
+                <strong>Administrateur</strong> : Unique utilisateur qui
+                configure et gère les moniteurs via l'application FortilApp
+              </li>
+              <li>
+                <strong>Serveur d'entreprise</strong> : Fournit les données à
+                afficher (projets, collaborateurs, vidéos, etc.)
+              </li>
+              <li>
+                <strong>OS</strong> : Système d'exploitation qui gère le
+                démarrage et l'arrêt de Fora
+              </li>
+            </ul>
+            <!-- Remplacer la section des cas d'utilisation -->
+            <h3>Cas d'utilisation principaux</h3>
+            <div class="prose-usecase">
+              <h4>Lancer Fora</h4>
+              <p><strong>Acteur principal:</strong> Administrateur</p>
+              <p>
+                <strong>Description:</strong> L'administrateur lance Fora qui
+                affiche l'écran configuré sur le moniteur.
+              </p>
+              <p><strong>Scénario principal:</strong></p>
+              <ol>
+                <li>Fora démarre</li>
+                <li>Fora affiche l'écran de chargement</li>
+                <li>Fora vérifie la présence d'une configuration</li>
+                <li>Fora charge la configuration</li>
+                <li>Fora demande les données au serveur d'entreprise</li>
+                <li>Fora affiche la présentation sur le moniteur</li>
+              </ol>
+            </div>
+
+            <div class="prose-usecase">
+              <h4>Configurer une borne</h4>
+              <p><strong>Acteur principal:</strong> Administrateur</p>
+              <p>
+                <strong>Description:</strong> L'administrateur sélectionne une
+                borne existante et modifie ses paramètres (nom, adresse IP,
+                catalogue, volume, temps d'affichage, widgets activés).
+              </p>
+              <p><strong>Scénario principal:</strong></p>
+              <ol>
+                <li>L'administrateur sélectionne une borne</li>
+                <li>FortilApp charge les données de la borne sélectionnée</li>
+                <li>FortilApp demande au serveur la liste des catalogues</li>
+                <li>FortilApp affiche l'écran de configuration</li>
+                <li>L'administrateur modifie les paramètres souhaités</li>
+                <li>L'administrateur valide la configuration</li>
+                <li>FortilApp sauvegarde et envoie la configuration à Fora</li>
+                <li>Fora applique la configuration et affiche le contenu</li>
+              </ol>
+            </div>
+
+            <div class="prose-usecase">
+              <h4>Ajouter une nouvelle borne</h4>
+              <p><strong>Acteur principal:</strong> Administrateur</p>
+              <p>
+                <strong>Description:</strong> L'administrateur ajoute une
+                nouvelle borne qui sera ensuite affichée sur l'écran d'accueil
+                de FortilApp avec son statut.
+              </p>
+              <p><strong>Scénario principal:</strong></p>
+              <ol>
+                <li>L'administrateur ajoute une nouvelle borne</li>
+                <li>FortilApp affiche l'écran de nouvelle borne</li>
+                <li>
+                  L'administrateur configure les identifiants (nom et adresse
+                  IP)
+                </li>
+                <li>L'administrateur valide les identifiants</li>
+                <li>FortilApp vérifie les identifiants</li>
+                <li>FortilApp sauvegarde la borne</li>
+                <li>FortilApp rafraîchit le statut des bornes</li>
+              </ol>
+            </div>
+
+            <div class="prose-usecase">
+              <h4>Rafraîchir le statut des bornes</h4>
+              <p>
+                <strong>Description:</strong> FortilApp récupère le statut de
+                toutes les bornes enregistrées.
+              </p>
+              <p><strong>Scénario principal:</strong></p>
+              <ol>
+                <li>FortilApp demande le statut d'une borne à Fora</li>
+                <li>Fora répond avec son statut</li>
+                <li>
+                  FortilApp enregistre le statut (Connectée, Déconnectée ou À
+                  configurer)
+                </li>
+                <li>FortilApp répète pour chaque borne</li>
+                <li>
+                  FortilApp met à jour l'affichage avec les statuts actualisés
+                </li>
+              </ol>
+            </div>
+            <h3>Diagramme de cas d'utilisation</h3>
+            <div class="prose-diagram">
+              <!-- Diagramme simplifié des cas d'utilisation -->
+              <svg width="100%" height="400" viewBox="0 0 800 400">
+                <!-- Bordure du système -->
+                <rect
+                  x="150"
+                  y="50"
+                  width="500"
+                  height="300"
+                  rx="10"
+                  ry="10"
+                  fill="none"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                  stroke-dasharray="5,5"
+                />
+                <text
+                  x="400"
+                  y="80"
+                  text-anchor="middle"
+                  fill="#3b82f6"
+                  font-weight="bold"
+                >
+                  Système ProSE
+                </text>
+
+                <!-- Acteur Administrateur -->
+                <circle
+                  cx="75"
+                  cy="150"
+                  r="20"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="75"
+                  y1="170"
+                  x2="75"
+                  y2="220"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="75"
+                  y1="190"
+                  x2="45"
+                  y2="220"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="75"
+                  y1="190"
+                  x2="105"
+                  y2="220"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="75" y="250" text-anchor="middle" fill="#e2e8f0">
+                  Administrateur
+                </text>
+
+                <!-- Acteur Serveur Entreprise -->
+                <circle
+                  cx="725"
+                  cy="150"
+                  r="20"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="725"
+                  y1="170"
+                  x2="725"
+                  y2="220"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="725"
+                  y1="190"
+                  x2="695"
+                  y2="220"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <line
+                  x1="725"
+                  y1="190"
+                  x2="755"
+                  y2="220"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="725" y="250" text-anchor="middle" fill="#e2e8f0">
+                  Serveur
+                </text>
+
+                <!-- Cas d'utilisation -->
+                <ellipse
+                  cx="250"
+                  cy="120"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="250" y="120" text-anchor="middle" fill="#e2e8f0">
+                  Configurer moniteur
+                </text>
+
+                <ellipse
+                  cx="250"
+                  cy="200"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="250" y="200" text-anchor="middle" fill="#e2e8f0">
+                  Ajouter moniteur
+                </text>
+
+                <ellipse
+                  cx="250"
+                  cy="280"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="250" y="280" text-anchor="middle" fill="#e2e8f0">
+                  Supprimer moniteur
+                </text>
+
+                <ellipse
+                  cx="400"
+                  cy="150"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="400" y="150" text-anchor="middle" fill="#e2e8f0">
+                  Gérer widgets
+                </text>
+
+                <ellipse
+                  cx="550"
+                  cy="120"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="550" y="120" text-anchor="middle" fill="#e2e8f0">
+                  Gérer catalogues
+                </text>
+
+                <ellipse
+                  cx="550"
+                  cy="200"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="550" y="200" text-anchor="middle" fill="#e2e8f0">
+                  Obtenir données
+                </text>
+
+                <ellipse
+                  cx="550"
+                  cy="280"
+                  rx="80"
+                  ry="30"
+                  fill="#1e293b"
+                  stroke="#3b82f6"
+                  stroke-width="2"
+                />
+                <text x="550" y="280" text-anchor="middle" fill="#e2e8f0">
+                  Actualiser contenu
+                </text>
+
+                <!-- Relations -->
+                <line
+                  x1="110"
+                  y1="150"
+                  x2="170"
+                  y2="120"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+                <line
+                  x1="110"
+                  y1="150"
+                  x2="170"
+                  y2="200"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+                <line
+                  x1="110"
+                  y1="150"
+                  x2="170"
+                  y2="280"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+                <line
+                  x1="110"
+                  y1="150"
+                  x2="320"
+                  y2="150"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+                <line
+                  x1="110"
+                  y1="150"
+                  x2="470"
+                  y2="120"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+
+                <line
+                  x1="630"
+                  y1="200"
+                  x2="690"
+                  y2="150"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+                <line
+                  x1="630"
+                  y1="280"
+                  x2="690"
+                  y2="150"
+                  stroke="#e2e8f0"
+                  stroke-width="1"
+                />
+              </svg>
+            </div>
+
+            <h3>Description des cas d'utilisation principaux</h3>
+
+            <div class="prose-usecase">
+              <h4>Configurer un moniteur</h4>
+              <p><strong>Acteur principal:</strong> Administrateur</p>
+              <p>
+                <strong>Description:</strong> L'administrateur sélectionne un
+                moniteur existant dans la liste et modifie ses paramètres (nom,
+                adresse IP, catalogue, volume, temps d'affichage, widgets
+                activés).
+              </p>
+              <p><strong>Scénario principal:</strong></p>
+              <ol>
+                <li>L'administrateur ouvre l'application FortilApp</li>
+                <li>
+                  Il sélectionne un moniteur dans la liste des moniteurs
+                  disponibles
+                </li>
+                <li>Il modifie les paramètres souhaités</li>
+                <li>Il valide les modifications</li>
+                <li>
+                  L'application transmet la nouvelle configuration au moniteur
+                </li>
+                <li>
+                  Le moniteur applique la configuration et confirme la mise à
+                  jour
+                </li>
+              </ol>
+            </div>
+
+            <div class="prose-usecase">
+              <h4>Gérer les catalogues</h4>
+              <p><strong>Acteur principal:</strong> Administrateur</p>
+              <p><strong>Acteur secondaire:</strong> Serveur d'entreprise</p>
+              <p>
+                <strong>Description:</strong> L'administrateur configure le
+                catalogue à afficher sur un moniteur, déterminant ainsi les
+                vidéos, projets et collaborateurs qui seront présentés.
+              </p>
+              <p><strong>Scénario principal:</strong></p>
+              <ol>
+                <li>L'administrateur ouvre la configuration d'un moniteur</li>
+                <li>
+                  Il sélectionne un catalogue dans la liste des catalogues
+                  disponibles
+                </li>
+                <li>Il définit la durée d'affichage des éléments</li>
+                <li>Il valide la configuration</li>
+                <li>
+                  Le moniteur télécharge le contenu du catalogue depuis le
+                  serveur
+                </li>
+                <li>
+                  Le moniteur commence à afficher séquentiellement les éléments
+                  du catalogue
+                </li>
+              </ol>
+            </div>
+
+            <h2>Focus sur le composant Catalog</h2>
+            <p>
+              Dans la phase de spécification, nous avons défini précisément les
+              responsabilités du composant Catalog, qui est au cœur du système
+              d'affichage.
+            </p>
+
+            <h3>Fonctionnalités requises</h3>
+            <ul>
+              <li>
+                Charger et stocker les données des différents types de contenu
+                (vidéos, projets, collaborateurs)
+              </li>
+              <li>
+                Gérer les transitions entre les différents éléments à afficher
+              </li>
+              <li>Respecter les durées d'affichage configurées</li>
+              <li>Notifier l'interface utilisateur des changements d'état</li>
+              <li>
+                Communiquer avec le serveur pour obtenir les données via des
+                requêtes HTTP
+              </li>
+              <li>
+                Gérer la mise en cache des données pour optimiser les
+                performances
+              </li>
+            </ul>
+
+            <div class="prose-navigation">
+              <a href="index.html" class="prose-nav-prev">
+                <i class="ri-arrow-left-line"></i> Accueil
+              </a>
+              <a href="conception.html" class="prose-nav-next">
+                Conception <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">MT</div>
+          <nav class="footer-nav">
+            <a href="../../index.html#accueil">Accueil</a>
+            <a href="../../index.html#parcours">Parcours</a>
+            <a href="../../index.html#projets">Projets</a>
+            <a href="../../index.html#competences">Compétences</a>
+            <a href="../../index.html#contact">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Matthieu Tremblay. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/utils/animations.js"></script>
+    <script src="../../js/components/navigation.js"></script>
+  </body>
+</html>
